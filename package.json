@@ -14,6 +14,7 @@
     "test": "lint-staged"
   },
   "dependencies": {
+    "@types/node": "^18.11.9",
     "i18next": "^22.0.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
