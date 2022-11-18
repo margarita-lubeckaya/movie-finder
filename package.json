@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\" --color",
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix --color"
+    "lint:fix": "eslint ./src --fix --color",
+    "prepare": "husky install"
   },
   "dependencies": {
     "i18next": "^22.0.5",
