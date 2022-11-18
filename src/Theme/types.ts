@@ -14,9 +14,10 @@ export type ConfigInline = { [key: string]: number | string }
 export type ConfigResponsive = { [key: string]: ResponsiveProp }
 
 export interface ThemeConfig {
-  // pxToRem : (px:number) => string
   breakpoints: Breakpoints
-  fonts: ConfigInline
+  fonts: ConfigInline & {
+    base: string
+  }
   colors: ConfigInline
   sizes: ConfigResponsive
   spacing: ConfigResponsive

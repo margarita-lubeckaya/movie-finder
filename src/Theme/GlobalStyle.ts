@@ -110,7 +110,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
-  #___gatsby, #gatsby-focus-wrapper {
+  #root {
     //all: inherit;
     flex: 1 1 100%;
     display: flex;
