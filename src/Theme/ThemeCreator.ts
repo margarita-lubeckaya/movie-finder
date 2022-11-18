@@ -28,10 +28,13 @@ class ThemeCreator implements ThemeConfig {
     this.pxToRem = mixins.pxToRem
 
     if (config?.colorTheme && config.colorTheme in themeConfig) {
-      Object.assign(
-        this,
-        JSON.parse(JSON.stringify(themeConfig[config.colorTheme]))
-      )
+      const selectedTheme = themeConfig[config.colorTheme]
+      Object.keys(selectedTheme).forEach((key) => {
+        Object.assign(
+          this[key as keyof ThemeConfig],
+          selectedTheme[key as keyof typeof selectedTheme]
+        )
+      })
     }
   }
 

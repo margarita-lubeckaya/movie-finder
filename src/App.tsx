@@ -1,6 +1,10 @@
-import { Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './Layout'
+
+const HomePage = lazy(() => import('./pages/HomePage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const MoviesPage = lazy(() => import('./pages/MoviesPage'))
 
 function App() {
   return (
@@ -8,30 +12,9 @@ function App() {
       <Layout>
         <Suspense fallback={<div>loading...</div>}>
           <Routes>
-            <Route
-              path="/about"
-              element={
-                <>
-                  <div>About</div>
-                </>
-              }
-            />
-            <Route
-              path="/users"
-              element={
-                <>
-                  <div>Users</div>
-                </>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <>
-                  <div>Home</div>
-                </>
-              }
-            />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/movies" element={<MoviesPage />} />
           </Routes>
         </Suspense>
       </Layout>

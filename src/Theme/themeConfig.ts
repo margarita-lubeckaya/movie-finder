@@ -29,9 +29,13 @@ const themeConfig: {
         xs: 34,
         sm: 42,
       },
-      title3: {
+      title2: {
         xs: 24,
         md: 32,
+      },
+      title3: {
+        xs: 20,
+        md: 24,
       },
       text: {
         xs: 16,
@@ -92,8 +96,9 @@ const themeConfig: {
 
   light: {
     colors: {
-      mainBg: '#050505',
-      text: '#E7E2F8',
+      text: '#050505',
+      mainBg: '#E7E2F8',
+      accent: '#000000',
     },
   },
 
@@ -101,6 +106,7 @@ const themeConfig: {
     colors: {
       mainBg: '#4f1191',
       text: '#b0f8d7',
+      accent: '#f4cdff',
     },
   },
 }

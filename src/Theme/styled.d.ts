@@ -12,5 +12,6 @@ declare module 'styled-components' {
       convertToRem: boolean
     ) => FlattenSimpleInterpolation | FlattenSimpleInterpolation[]
     mediaBreakpointUp: (screen: Breakpoint) => string
+    mediaBreakpointDown: (screen: Breakpoint) => string
   }
 }
