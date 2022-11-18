@@ -1,11 +1,9 @@
-import {ThemeConfig} from "./types";
+import { ThemeConfig } from './types'
 
-
-const themeConfig : {
-  default : ThemeConfig,
-  [alternate: string] : Partial<ThemeConfig>
+const themeConfig: {
+  default: ThemeConfig
+  [alternate: string]: Partial<ThemeConfig>
 } = {
-
   default: {
     colors: {
       white: '#ffffff',
@@ -96,16 +94,15 @@ const themeConfig : {
     colors: {
       mainBg: '#050505',
       text: '#E7E2F8',
-
-    }
+    },
   },
 
   extra: {
     colors: {
       mainBg: '#4f1191',
       text: '#b0f8d7',
-    }
-  }
+    },
+  },
 }
 
 export default themeConfig

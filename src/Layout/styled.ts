@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const Page = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,7 +11,6 @@ export const PageMain = styled.main`
   width: 100%;
   flex: 1 1 auto;
 `
-
 
 export const PageFooter = styled.footer`
   position: relative;
