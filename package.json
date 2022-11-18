@@ -10,7 +10,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\" --color",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix --color",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "lint-staged"
   },
   "dependencies": {
     "i18next": "^22.0.5",

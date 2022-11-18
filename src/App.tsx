@@ -1,9 +1,6 @@
 import { useState, Suspense } from 'react'
 import reactLogo from './assets/react.svg'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
-import Header from "./Layout/Header"
-
 import Layout from './Layout'
 
 import './App.css'
