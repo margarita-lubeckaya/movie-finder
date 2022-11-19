@@ -34,11 +34,11 @@ const ThemeWrapper = ({
 
 ThemeWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  colorTheme: PropTypes.oneOf(['light', 'dark', 'extra']),
+  colorTheme: PropTypes.oneOf(['light', 'default', 'extra']),
 }
 
 ThemeWrapper.defaultProps = {
-  colorTheme: 'dark',
+  colorTheme: 'default',
 }
 
 export default ThemeWrapper

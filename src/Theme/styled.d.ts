@@ -4,7 +4,6 @@ import { FlattenSimpleInterpolation } from 'styled-components'
 
 declare module 'styled-components' {
   export interface DefaultTheme extends ThemeConfig {
-    type: 'defaultTheme'
     pxToRem: (px: number | string) => string
     setPropResponsive: (
       cssProp: string,

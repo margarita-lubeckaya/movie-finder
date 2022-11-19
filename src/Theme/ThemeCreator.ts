@@ -20,13 +20,12 @@ class ThemeCreator implements ThemeConfig {
 
   constructor(config: { colorTheme: keyof typeof themeConfig }) {
     this.breakpoints = themeConfig.default.breakpoints
-    this.fonts = themeConfig.default.fonts
-    this.colors = themeConfig.default.colors
-    this.sizes = themeConfig.default.sizes
-    this.spacing = themeConfig.default.spacing
-    this.fontSizes = themeConfig.default.fontSizes
+    this.fonts = { ...themeConfig.default.fonts }
+    this.colors = { ...themeConfig.default.colors }
+    this.sizes = { ...themeConfig.default.sizes }
+    this.spacing = { ...themeConfig.default.spacing }
+    this.fontSizes = { ...themeConfig.default.fontSizes }
     this.pxToRem = mixins.pxToRem
-
     if (config?.colorTheme && config.colorTheme in themeConfig) {
       const selectedTheme = themeConfig[config.colorTheme]
       Object.keys(selectedTheme).forEach((key) => {

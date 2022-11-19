@@ -1,8 +1,17 @@
 import * as React from 'react'
+import { ChangeEventHandler } from 'react'
 
 import * as S from './styled'
 
-const Header = () => {
+const Header = ({
+  onThemeChange,
+}: {
+  onThemeChange: (theme: string) => void
+}) => {
+  const onThemeSelect: ChangeEventHandler<HTMLSelectElement> = (event) => {
+    onThemeChange(event.target.value)
+  }
+
   return (
     <S.Header>
       <S.HeaderCentered>
@@ -18,7 +27,13 @@ const Header = () => {
           </S.NavMenuList>
           <S.ExtraList>
             <S.ExtraItem>lang</S.ExtraItem>
-            <S.ExtraItem>theme</S.ExtraItem>
+            <S.ExtraItem>
+              <select onChange={onThemeSelect}>
+                <option value="default">dark</option>
+                <option value="light">light</option>
+                <option value="extra">extra</option>
+              </select>
+            </S.ExtraItem>
           </S.ExtraList>
         </S.Nav>
       </S.HeaderCentered>
