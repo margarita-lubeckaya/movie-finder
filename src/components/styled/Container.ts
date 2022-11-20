@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
-  background-color: green;
+const ContainerStyled = styled.div`
   width: 100%;
   max-width: var(--container-max-width);
 
@@ -12,6 +11,6 @@ const Container = styled.div`
   }
 `
 
-Container.defaultProps = {}
+ContainerStyled.defaultProps = {}
 
-export default Container
+export default ContainerStyled

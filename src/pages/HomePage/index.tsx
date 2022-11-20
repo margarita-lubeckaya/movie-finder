@@ -1,70 +1,41 @@
 import * as React from 'react'
-import { useQuery } from 'react-query'
-import { useState } from 'react'
-import axios from 'axios'
-
-interface Passenger {
-  _id: string
-  name: string
-}
-
-const fetchPass = async (page: number): Promise<{ data: Passenger[] }> => {
-  const { data } = await axios.get(
-    `https://api.instantwebtools.net/v1/passenger?page=${page}&size=10`
-  )
-  return data
-}
+import { useUpcoming } from '@src/hooks/useUpcoming'
+import * as S from '@src/pages/HomePage/styled'
+import ContainerStyled from '@src/components/styled/Container'
+import SectionStyled from '@src/components/styled/Section'
 
 const HomePage = () => {
-  const [page, setPage] = useState(0)
+  const { isLoading, isError, upcoming } = useUpcoming()
 
-  const {
-    isLoading,
-    isError,
-    data: passengers,
-    isSuccess,
-  } = useQuery({
-    queryKey: ['passengers', page],
-    queryFn: () => fetchPass(page),
-  })
-
-  return (
-    <div className="classname">
-      <h1>Homepage Component</h1>
-
-      <button
-        disabled={page === 0 ? true : undefined}
-        onClick={() => {
-          setPage((saved) => Math.max(0, saved - 1))
-        }}
-      >
-        prev page
-      </button>
-
-      <button
-        disabled={page === 10 ? true : undefined}
-        onClick={() => {
-          setPage((saved) => saved + 1)
-        }}
-      >
-        next page
-      </button>
-
-      <br />
-      <h3>page {page}</h3>
-      <br />
-
-      {isSuccess &&
-        passengers.data.map((item) => (
-          <div key={item._id}>
-            <p>{item.name}</p>
-            <p>{item._id}</p>
-          </div>
-        ))}
-
-      {isError && <p>Error!</p>}
-      {isLoading && <p>Loading..</p>}
-    </div>
+  return isError ? null : (
+    // <>
+    <SectionStyled>
+      <ContainerStyled>
+        <h1>Homepage Component</h1>
+        {isLoading && <p>Loading..</p>}
+        <S.CardList>
+          {upcoming?.length &&
+            upcoming.map((item) => (
+              <S.CardItem key={item.id}>
+                <S.Movie>
+                  {item.primaryImage ? (
+                    <S.Poster
+                      width={300}
+                      height={400}
+                      src={item.primaryImage.url}
+                      alt={item.primaryImage.url || item.titleText.text}
+                    />
+                  ) : (
+                    <S.PosterPlaceholder />
+                  )}
+                  <S.MovieTitle>{item.titleText.text}</S.MovieTitle>
+                </S.Movie>
+              </S.CardItem>
+            ))}
+        </S.CardList>
+      </ContainerStyled>
+    </SectionStyled>
+    // </>
   )
 }
 
