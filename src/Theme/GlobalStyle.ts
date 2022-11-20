@@ -24,9 +24,6 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     flex-direction: column;
     background: var(--base-color-main-bg);
-
-    height: 100%;
-    overflow: hidden;
   }
 
   .grecaptcha-badge {
