@@ -1,11 +1,16 @@
 import * as React from 'react'
 import { useUpcoming } from '@src/hooks/useUpcoming'
 import * as S from '@src/pages/HomePage/styled'
+import { Link } from 'react-router-dom'
 import ContainerStyled from '@src/components/styled/Container'
 import SectionStyled from '@src/components/styled/Section'
 
 const HomePage = () => {
   const { isLoading, isError, upcoming } = useUpcoming()
+
+  const titleToHandle = (title: string) => {
+    return encodeURI(title)
+  }
 
   return isError ? null : (
     // <>
@@ -28,7 +33,12 @@ const HomePage = () => {
                   ) : (
                     <S.PosterPlaceholder />
                   )}
-                  <S.MovieTitle>{item.titleText.text}</S.MovieTitle>
+                  <Link
+                    to={`/movie/${titleToHandle(item.titleText.text)}`}
+                    state={{ movie: item }}
+                  >
+                    <S.MovieTitle>{item.titleText.text}</S.MovieTitle>
+                  </Link>
                 </S.Movie>
               </S.CardItem>
             ))}

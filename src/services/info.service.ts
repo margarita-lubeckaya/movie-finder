@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { API_URL } from './config'
 
-interface IMovie {
+export interface IMovie {
   id: string
   primaryImage?: {
     id: string

@@ -7,6 +7,7 @@ import Layout from './Layout'
 const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const MoviesPage = lazy(() => import('./pages/MoviesPage'))
+const Movie = lazy(() => import('./pages/Movie'))
 
 const queryClient = new QueryClient()
 
@@ -20,6 +21,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/movies" element={<MoviesPage />} />
+              <Route path="/movie/:handle" element={<Movie />} />
             </Routes>
           </Suspense>
         </Layout>
