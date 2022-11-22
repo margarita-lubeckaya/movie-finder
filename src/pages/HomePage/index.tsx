@@ -1,36 +1,57 @@
 import * as React from 'react'
 import { useUpcoming } from '@src/hooks/useUpcoming'
 import * as S from '@src/pages/HomePage/styled'
-import ContainerStyled from '@src/components/styled/Container'
-import SectionStyled from '@src/components/styled/Section'
-import MovieCard from '@src/components/MovieCard'
-import TitleStyled from '@src/components/styled/Title'
-import DescriptionStyled from '@src/components/styled/Description'
 import { useTranslation } from 'react-i18next'
+import MovieCard from '@src/components/MovieCard'
+import * as Styled from '@src/components/styled'
 
 const HomePage = () => {
   const { isLoading, isError, upcoming } = useUpcoming()
   const { t } = useTranslation()
 
   return isError ? null : (
-    // <>
-    <SectionStyled>
-      <ContainerStyled>
-        <TitleStyled as="h2">{t('home.upcomingTitle')}</TitleStyled>
-        <DescriptionStyled as="p">{t('home.upcomingText')}</DescriptionStyled>
+    <>
+      <Styled.Section>
+        <Styled.Container>
+          <Styled.Title as="h2">{t('home.upcomingTitle')}</Styled.Title>
+          <Styled.Description as="p">
+            {t('home.upcomingText')}
+          </Styled.Description>
+          {isLoading && <p>Loading..</p>}
+          actors
+        </Styled.Container>
+      </Styled.Section>
 
-        {isLoading && <p>Loading..</p>}
-        <S.CardList>
-          {upcoming?.length &&
-            upcoming.map((item) => (
-              <S.CardItem key={item.id}>
-                <MovieCard movie={item} />
-              </S.CardItem>
-            ))}
-        </S.CardList>
-      </ContainerStyled>
-    </SectionStyled>
-    // </>
+      <Styled.Section>
+        <Styled.Container>
+          <Styled.Title as="h2">{t('home.upcomingTitle')}</Styled.Title>
+          <Styled.Description as="p">
+            {t('home.upcomingText')}
+          </Styled.Description>
+          {isLoading && <p>Loading..</p>}
+          tags
+        </Styled.Container>
+      </Styled.Section>
+
+      <Styled.Section>
+        <Styled.Container>
+          <Styled.Title as="h2">{t('home.upcomingTitle')}</Styled.Title>
+          <Styled.Description as="p">
+            {t('home.upcomingText')}
+          </Styled.Description>
+
+          {isLoading && <p>Loading..</p>}
+          <S.CardList>
+            {upcoming?.length &&
+              upcoming.map((item) => (
+                <S.CardItem key={item.id}>
+                  <MovieCard movie={item} />
+                </S.CardItem>
+              ))}
+          </S.CardList>
+        </Styled.Container>
+      </Styled.Section>
+    </>
   )
 }
 

@@ -4,7 +4,7 @@ import { IMovie, movieType } from '@src/types/movie'
 import moviePlaceholder from '@src/assets/movie-placeholder.png'
 
 const MovieCard = ({ movie }: { movie: IMovie }) => {
-  const formateDate = () => {
+  const formatDate = () => {
     return new Date(
       movie.releaseDate.year,
       movie.releaseDate.month - 1,
@@ -34,7 +34,7 @@ const MovieCard = ({ movie }: { movie: IMovie }) => {
         to={`/movie/${encodeURI(movie.titleText.text)}`}
         state={{ movie }}
       >
-        <S.Date>{formateDate()}</S.Date>
+        <S.Date>{formatDate()}</S.Date>
         <S.Title>{movie.titleText.text}</S.Title>
       </S.CardLink>
     </S.Card>

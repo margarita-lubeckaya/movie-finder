@@ -1,5 +1,3 @@
-// DescriptionStyled
-
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import * as mixins from '@src/Theme/mixins'
