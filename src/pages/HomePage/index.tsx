@@ -1,45 +1,30 @@
 import * as React from 'react'
 import { useUpcoming } from '@src/hooks/useUpcoming'
 import * as S from '@src/pages/HomePage/styled'
-import { Link } from 'react-router-dom'
 import ContainerStyled from '@src/components/styled/Container'
 import SectionStyled from '@src/components/styled/Section'
+import MovieCard from '@src/components/MovieCard'
+import TitleStyled from '@src/components/styled/Title'
+import DescriptionStyled from '@src/components/styled/Description'
+import { useTranslation } from 'react-i18next'
 
 const HomePage = () => {
   const { isLoading, isError, upcoming } = useUpcoming()
-
-  const titleToHandle = (title: string) => {
-    return encodeURI(title)
-  }
+  const { t } = useTranslation()
 
   return isError ? null : (
     // <>
     <SectionStyled>
       <ContainerStyled>
-        <h1>Homepage Component</h1>
+        <TitleStyled as="h2">{t('home.upcomingTitle')}</TitleStyled>
+        <DescriptionStyled as="p">{t('home.upcomingText')}</DescriptionStyled>
+
         {isLoading && <p>Loading..</p>}
         <S.CardList>
           {upcoming?.length &&
             upcoming.map((item) => (
               <S.CardItem key={item.id}>
-                <S.Movie>
-                  {item.primaryImage ? (
-                    <S.Poster
-                      width={300}
-                      height={400}
-                      src={item.primaryImage.url}
-                      alt={item.primaryImage.url || item.titleText.text}
-                    />
-                  ) : (
-                    <S.PosterPlaceholder />
-                  )}
-                  <Link
-                    to={`/movie/${titleToHandle(item.titleText.text)}`}
-                    state={{ movie: item }}
-                  >
-                    <S.MovieTitle>{item.titleText.text}</S.MovieTitle>
-                  </Link>
-                </S.Movie>
+                <MovieCard movie={item} />
               </S.CardItem>
             ))}
         </S.CardList>

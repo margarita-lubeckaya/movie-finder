@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { API_URL } from './config'
-import { IMovie } from '@src/services/info.service'
+import { IMovie } from '@src/types/movie'
 
 interface IRatings {
   tconst: string

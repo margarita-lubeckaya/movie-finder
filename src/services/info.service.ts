@@ -1,32 +1,6 @@
 import axios from 'axios'
 import { API_URL } from './config'
-
-export interface IMovie {
-  id: string
-  primaryImage?: {
-    id: string
-    width: number
-    height: number
-    url: string
-    caption: {
-      plainText: string
-    }
-  }
-  titleType: {
-    text: string
-    id: string
-    isSeries: boolean
-    isEpisode: boolean
-  }
-  titleText: {
-    text: string
-  }
-  releaseDate: {
-    day: number
-    month: number
-    year: number
-  }
-}
+import { IMovie } from '@src/types/movie'
 
 export const InfoService = {
   async getUpcoming(): Promise<{ results: IMovie[] }> {
@@ -34,6 +8,7 @@ export const InfoService = {
       params: {
         titleType: 'movie',
         limit: '4',
+        sort: 'year.incr',
         startYear: new Date().getFullYear(),
       },
     })

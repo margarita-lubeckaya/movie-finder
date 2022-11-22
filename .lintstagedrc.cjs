@@ -1,3 +1,3 @@
 module.exports = {
-  'src/**/*': ['npm run lint:fix', 'npm run format'],
+  'src/**/*.+(js|ts|tsx)': ['npm run lint:fix', 'npm run format'],
 }

@@ -11,5 +11,10 @@ export default {
         extra: 'extra',
       },
     },
+    home: {
+      upcomingTitle: 'Upcoming',
+      upcomingText:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, odit!',
+    },
   },
 }
