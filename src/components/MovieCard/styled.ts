@@ -22,18 +22,11 @@ export const Poster = styled.figure`
   z-index: 1;
 `
 
-export const PosterImage = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  display: block;
-`
-
 export const Title = styled.h3`
   font-weight: bold;
-  font-size: 2em;
+  ${({ theme }) =>
+    theme.setPropResponsive('font-size', theme.fontSizes.title2, true)}
   padding: 0.5em;
-  // text-shadow: 0 0 2px ${({ theme }) => theme.colors.mainBg};
   transition: transform 0.5s ease;
   justify-self: flex-end;
 `

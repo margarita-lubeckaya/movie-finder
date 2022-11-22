@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { API_URL } from './config'
-import { IMovie } from '@src/types/movie'
+import { IMoveDetailed, IMovie } from '@src/types/movie'
 
 interface IRatings {
   tconst: string
@@ -9,13 +9,9 @@ interface IRatings {
 }
 
 export const MovieService = {
-  async get(id: string): Promise<{ results: IMovie }> {
+  async getDetailed(id: string): Promise<{ results: IMoveDetailed }> {
     const { data } = await axios.get(`${API_URL}/titles/${id}`, {
-      params: {
-        titleType: 'movie',
-        limit: '4',
-        startYear: new Date().getFullYear(),
-      },
+      params: { info: 'base_info' },
     })
     return data
   },

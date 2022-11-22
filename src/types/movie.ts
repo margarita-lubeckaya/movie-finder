@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types'
 
+export type TReleaseDate = {
+  day: number
+  month: number
+  year: number
+}
+
 export interface IMovie {
   id: string
   primaryImage?: {
@@ -20,11 +26,7 @@ export interface IMovie {
   titleText: {
     text: string
   }
-  releaseDate: {
-    day: number
-    month: number
-    year: number
-  }
+  releaseDate: TReleaseDate
 }
 
 export const movieType = PropTypes.shape({
@@ -43,3 +45,33 @@ export const movieType = PropTypes.shape({
     year: PropTypes.number,
   }),
 })
+
+type TGenre = {
+  text: string
+  id: string
+}
+
+export interface IMoveDetailed extends IMovie {
+  ratingsSummary: {
+    aggregateRating: number | null
+    voteCount: number
+  }
+  genres: {
+    genres: TGenre[]
+  }
+  // episodes: null
+  // runtime: null
+  // series: null
+  meterRanking: {
+    currentRank: number
+    rankChange: {
+      changeDirection: string
+      difference: number
+    }
+  }
+  plot: {
+    plotText: {
+      plainText: string
+    }
+  }
+}

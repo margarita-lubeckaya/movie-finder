@@ -8,6 +8,7 @@ const themeConfig: {
     colors: {
       white: '#ffffff',
       black: '#000000',
+      gray: '#908F9F',
       text: '#E7E2F8',
       mainBg: '#050505',
       accent: '#908F9F',
