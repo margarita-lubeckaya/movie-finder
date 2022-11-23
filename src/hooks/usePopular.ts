@@ -1,19 +1,19 @@
 import { useQuery } from 'react-query'
 import { InfoService } from '@src/services/info.service'
 
-export const useUpcoming = () => {
+export const usePopular = () => {
   const {
-    data: upcoming,
+    data: popular,
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ['upcoming'],
-    queryFn: InfoService.getUpcoming,
+    queryKey: ['popular'],
+    queryFn: InfoService.getPopular,
     select: (response) => response.results,
     onError: (error) => {
       console.log(error)
     },
   })
 
-  return { upcoming, isLoading, isError }
+  return { popular, isLoading, isError }
 }

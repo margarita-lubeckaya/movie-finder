@@ -51,14 +51,17 @@ type TGenre = {
   id: string
 }
 
-type TRating = {
-  tconst?: string
-  averageRating: number | null
-  numVotes: number
-}
+// type TRating  = {
+//   tconst?: string
+//   averageRating: number | null
+//   numVotes: number
+// }
 
 export interface IMoveDetailed extends IMovie {
-  ratingsSummary: TRating
+  ratingsSummary: {
+    aggregateRating: number | null
+    voteCount: number
+  }
   genres: {
     genres: TGenre[]
   }

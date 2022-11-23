@@ -10,6 +10,7 @@ const TitleStyled = styled.div<{
   line-height: 1.2;
   padding-bottom: ${mixins.pxToRem(60)};
   max-width: ${mixins.pxToRem(500)};
+  font-weight: 600;
 `
 
 TitleStyled.propTypes = {

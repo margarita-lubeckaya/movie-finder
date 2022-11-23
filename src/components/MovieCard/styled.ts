@@ -20,6 +20,7 @@ export const Poster = styled.figure`
   position: relative;
   grid-area: a;
   z-index: 1;
+  background-color: ${({ theme }) => theme.colors.accent};
 `
 
 export const Title = styled.h3`

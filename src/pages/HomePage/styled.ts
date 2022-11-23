@@ -8,5 +8,5 @@ export const CardList = styled.ul`
 `
 
 export const CardItem = styled.li`
-  //flex: 1 1 22%;
+  min-width: 0;
 `

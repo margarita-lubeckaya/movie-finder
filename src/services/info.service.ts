@@ -15,6 +15,17 @@ export const InfoService = {
     console.log(data)
     return data
   },
+  async getPopular(): Promise<{ results: IMovie[] }> {
+    const { data } = await axios.get(`${API_URL}/titles/`, {
+      params: {
+        titleType: 'movie',
+        list: 'most_pop_movies',
+        limit: '4',
+      },
+    })
+    console.log(data)
+    return data
+  },
   async getGenres() {
     return null
   },

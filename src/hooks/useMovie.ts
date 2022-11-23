@@ -15,7 +15,5 @@ export const useMovie = (movieId: string | undefined) => {
     },
     enabled: !!movieId,
   })
-
-  console.log('data', movieDetailed)
   return { movieDetailed, isLoading, isError }
 }

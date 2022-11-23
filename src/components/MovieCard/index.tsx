@@ -1,18 +1,24 @@
 import * as React from 'react'
-import * as S from './styled'
 import { IMovie, movieType } from '@src/types/movie'
-import moviePlaceholder from '@src/assets/movie-placeholder.png'
 import ImageStyled from '@src/components/styled/Image'
 import formatDate from '@src/helpers/formatDate'
 
+import * as S from './styled'
+import { useImageFallback } from '@src/hooks/useImageFallback'
+
 const MovieCard = ({ movie }: { movie: IMovie }) => {
+  const { imageOnErrorHandler, imageSrc } = useImageFallback(
+    movie.primaryImage?.url
+  )
+
   return (
     <S.Card>
       <S.Poster>
         <ImageStyled
           width={300}
           height={400}
-          src={movie.primaryImage?.url || moviePlaceholder}
+          src={imageSrc}
+          onError={imageOnErrorHandler}
           alt={movie.primaryImage?.caption?.plainText || movie.titleText.text}
         />
       </S.Poster>

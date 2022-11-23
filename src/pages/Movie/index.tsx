@@ -1,18 +1,23 @@
 import * as React from 'react'
+// import { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import * as Styled from '@src/components/styled'
 import { useMovie } from '@src/hooks/useMovie'
-import moviePlaceholder from '@src/assets/movie-placeholder.png'
 import IconStar from './IconStar'
 import formatDate from '@src/helpers/formatDate'
 
 import * as S from './styled'
+import { useImageFallback } from '@src/hooks/useImageFallback'
 
 const MoviePage = () => {
   const { id } = useParams()
   const { state } = useLocation()
 
   const { movieDetailed, isLoading, isError } = useMovie(id)
+
+  const { imageOnErrorHandler, imageSrc } = useImageFallback(
+    movieDetailed?.primaryImage?.url
+  )
 
   return (
     <Styled.Section>
@@ -22,7 +27,7 @@ const MoviePage = () => {
             {state.movie.titleText.text}
           </Styled.Title>
         ) : (
-          isLoading && 'loading... '
+          isLoading && <Styled.Loader />
         )}
         {isError && 'troubles to load the data'}
 
@@ -46,7 +51,6 @@ const MoviePage = () => {
               <Styled.Description>
                 {movieDetailed.plot?.plotText?.plainText}
               </Styled.Description>
-              {/*genres genres.genres = {text: string, id: string}*/}
               <S.Tags>
                 {movieDetailed.genres.genres.map((genre) => (
                   <S.Tag to={`/movies/?genre=${genre.id}`} key={genre.id}>
@@ -60,7 +64,8 @@ const MoviePage = () => {
               <Styled.Image
                 width={300}
                 height={400}
-                src={movieDetailed.primaryImage?.url || moviePlaceholder}
+                onError={imageOnErrorHandler}
+                src={imageSrc}
                 alt={
                   movieDetailed.primaryImage?.caption?.plainText ||
                   movieDetailed.titleText.text
