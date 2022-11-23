@@ -1,7 +1,8 @@
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { useUpcoming } from '@src/hooks/useUpcoming'
 import { usePopular } from '@src/hooks/usePopular'
-import { useTranslation } from 'react-i18next'
 import MovieCard from '@src/components/MovieCard'
 import * as Styled from '@src/components/styled'
 

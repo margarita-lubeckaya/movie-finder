@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { MovieService } from '@src/services/movie.service'
+import MovieService from '@src/services/movie.service'
 
 export const useMovie = (movieId: string | undefined) => {
   const {

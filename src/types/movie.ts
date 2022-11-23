@@ -81,3 +81,27 @@ export interface IMoveDetailed extends IMovie {
     }
   }
 }
+
+export enum ListVariants {
+  PopMovies = 'most_pop_movies',
+  PopSeries = 'most_pop_series',
+  TopBoxOffice = 'top_boxoffice_200',
+  TopBoxOfficeLast = 'top_boxoffice_last_weekend_10',
+  TopRated = 'top_rated_250',
+  TopRatedEnglish = 'top_rated_english_250',
+  TopRatedLowest = 'top_rated_lowest_100',
+  TopRatedSeries = 'top_rated_series_250',
+  FullCollection = 'titles',
+}
+
+export type TFilterParams = {
+  titleType?: string
+  genre?: string
+  list?: `${ListVariants}`
+  sort?: 'year.incr' | 'year.decr'
+  limit?: number
+  year?: number
+  startYear?: number
+  endYear?: number
+  page?: number
+}

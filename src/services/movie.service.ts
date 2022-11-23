@@ -2,7 +2,7 @@ import axios from 'axios'
 import { API_URL } from './config'
 import { IMoveDetailed, IMovie } from '@src/types/movie'
 
-export const MovieService = {
+const MovieService = {
   async getDetailed(id: string): Promise<{ results: IMoveDetailed }> {
     const { data } = await axios.get(`${API_URL}/titles/${id}`, {
       params: { info: 'base_info' },
@@ -18,3 +18,5 @@ export const MovieService = {
     return data
   },
 }
+
+export default MovieService

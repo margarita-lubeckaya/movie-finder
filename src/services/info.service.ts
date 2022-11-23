@@ -2,7 +2,7 @@ import axios from 'axios'
 import { API_URL } from './config'
 import { IMovie } from '@src/types/movie'
 
-export const InfoService = {
+const InfoService = {
   async getUpcoming(): Promise<{ results: IMovie[] }> {
     const { data } = await axios.get(`${API_URL}/titles/x/upcoming`, {
       params: {
@@ -12,7 +12,6 @@ export const InfoService = {
         startYear: new Date().getFullYear(),
       },
     })
-    console.log(data)
     return data
   },
   async getPopular(): Promise<{ results: IMovie[] }> {
@@ -23,10 +22,16 @@ export const InfoService = {
         limit: '4',
       },
     })
-    console.log(data)
     return data
   },
-  async getGenres() {
-    return null
+  async getGenres(): Promise<{ results: string[] }> {
+    const { data } = await axios.get(`${API_URL}/titles/utils/genres`)
+    return data
+  },
+  async getTitleTypes(): Promise<{ results: string[] }> {
+    const { data } = await axios.get(`${API_URL}/titles/utils/titleTypes`)
+    return data
   },
 }
+
+export default InfoService

@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { InfoService } from '@src/services/info.service'
+import InfoService from '@src/services/info.service'
 
 export const useUpcoming = () => {
   const {

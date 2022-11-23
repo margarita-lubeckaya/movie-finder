@@ -2,9 +2,9 @@ import { TReleaseDate } from '@src/types/movie'
 
 const formatDate = (releaseDate: TReleaseDate) => {
   return new Date(
-    releaseDate.year,
-    releaseDate.month - 1,
-    releaseDate.day
+    releaseDate?.year || 2022,
+    releaseDate?.month - 1 || 0,
+    releaseDate?.day || 1
   ).toLocaleDateString('en-US')
 }
 
