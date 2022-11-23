@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { useUpcoming } from '@src/hooks/useUpcoming'
 import { usePopular } from '@src/hooks/usePopular'
-import * as S from '@src/pages/HomePage/styled'
 import { useTranslation } from 'react-i18next'
 import MovieCard from '@src/components/MovieCard'
 import * as Styled from '@src/components/styled'
+
+import * as S from './styled'
 
 const HomePage = () => {
   const popularMovies = usePopular()
@@ -28,6 +29,9 @@ const HomePage = () => {
                 </S.CardItem>
               ))}
           </S.CardList>
+          <S.CardsFooter>
+            <Styled.Button to={'/movies'}>{t('common.seeAll')}</Styled.Button>
+          </S.CardsFooter>
         </Styled.Container>
       </Styled.Section>
 
@@ -47,6 +51,9 @@ const HomePage = () => {
                 </S.CardItem>
               ))}
           </S.CardList>
+          <S.CardsFooter>
+            <Styled.Button to={'/movies'}>{t('common.seeAll')}</Styled.Button>
+          </S.CardsFooter>
         </Styled.Container>
       </Styled.Section>
     </>

@@ -10,3 +10,9 @@ export const CardList = styled.ul`
 export const CardItem = styled.li`
   min-width: 0;
 `
+
+export const CardsFooter = styled.div`
+  padding-top: 4rem;
+  display: flex;
+  justify-content: flex-end;
+`

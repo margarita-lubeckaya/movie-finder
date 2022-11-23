@@ -1,5 +1,6 @@
 export default {
   translation: {
+    common: { seeAll: 'See All' },
     header: {
       nav: {
         movies: 'Movies list',
