@@ -23,7 +23,7 @@ const BaseLayout = ({ children }: { children: ReactNode }) => {
   return (
     <ThemeWrapper colorTheme={theme}>
       <S.Page>
-        <Header onThemeChange={handleThemeChange} />
+        <Header onThemeChange={handleThemeChange} selectedTheme={theme} />
         <S.PageMain>{children}</S.PageMain>
         <S.PageFooter></S.PageFooter>
       </S.Page>

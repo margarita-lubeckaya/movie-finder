@@ -8,7 +8,7 @@ export default {
     header: {
       nav: {
         movies: 'Movies list',
-        about: 'About page',
+        about: 'About Us',
       },
       theme: {
         default: 'dark',
@@ -46,6 +46,9 @@ export default {
         titleType: 'Type',
         submit: 'Search',
       },
+    },
+    about: {
+      title: 'About Us',
     },
   },
 }

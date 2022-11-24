@@ -1,13 +1,17 @@
 import * as React from 'react'
 import { ChangeEventHandler } from 'react'
+import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
+import { supportedLanguages } from '@src/i18n'
 
 import * as S from './styled'
 
 const Header = ({
   onThemeChange,
+  selectedTheme,
 }: {
   onThemeChange: (theme: string) => void
+  selectedTheme: string
 }) => {
   const { t, i18n } = useTranslation()
 
@@ -18,11 +22,6 @@ const Header = ({
     i18n.changeLanguage(event.target.value).then((p) => {
       console.log(p)
     })
-  }
-
-  const lngs = {
-    fr: 'French',
-    en: 'English',
   }
 
   return (
@@ -46,15 +45,18 @@ const Header = ({
                 onChange={onLangSelect}
                 defaultValue={i18n.resolvedLanguage}
               >
-                {Object.keys(lngs).map((lng) => (
+                {Object.keys(supportedLanguages).map((lng) => (
                   <option key={lng} value={lng}>
-                    {lngs[lng as keyof typeof lngs]}
+                    {supportedLanguages[lng as keyof typeof supportedLanguages]}
                   </option>
                 ))}
               </select>
             </S.ExtraItem>
             <S.ExtraItem>
-              <select onChange={onThemeSelect}>
+              <select
+                onChange={onThemeSelect}
+                value={selectedTheme || 'default'}
+              >
                 <option value="default">{t('header.theme.default')}</option>
                 <option value="light">{t('header.theme.light')}</option>
                 <option value="extra">{t('header.theme.extra')}</option>
@@ -65,6 +67,14 @@ const Header = ({
       </S.HeaderCentered>
     </S.Header>
   )
+}
+
+Header.propTypes = {
+  onThemeChange: PropTypes.func.isRequired,
+  selectedTheme: PropTypes.string,
+}
+Header.defaultProps = {
+  selectedTheme: 'default',
 }
 
 export default Header

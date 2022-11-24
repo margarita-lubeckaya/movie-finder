@@ -19,3 +19,8 @@ i18n
   })
 
 export default i18n
+
+export const supportedLanguages = {
+  fr: 'French',
+  en: 'English',
+}

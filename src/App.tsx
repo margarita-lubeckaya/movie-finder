@@ -2,6 +2,9 @@ import { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+
+import LoaderStyled from '@src/components/styled/Loader'
+
 import Layout from './Layout'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -16,7 +19,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Layout>
-          <Suspense fallback={<div>loading...</div>}>
+          <Suspense fallback={<LoaderStyled />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
