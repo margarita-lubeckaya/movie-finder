@@ -13,9 +13,6 @@ import FiltrationForm from './FiltrationForm'
 
 const itemsPerPage = 8
 
-// todo : load more infinite
-// todo : reset form ?
-
 const MoviesPage = () => {
   const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -28,12 +25,10 @@ const MoviesPage = () => {
       year: 0,
       startYear: 0,
       endYear: 0,
-      page: 1,
-      limit: itemsPerPage,
     }
 
     return Object.keys(initValue).reduce((saved, paramKey) => {
-      const numberTypes = ['page', 'year', 'startYear', 'endYear', 'limit']
+      const numberTypes = ['year', 'startYear', 'endYear']
       if (searchParams.has(paramKey)) {
         const searchValue = searchParams.get(paramKey) as string
         return {
@@ -56,7 +51,7 @@ const MoviesPage = () => {
   const [filterParams, setFilterParams] =
     useState<TFilterParams>(filterInitParams)
 
-  const filteredMovies = useFiltration(filterParams)
+  const filteredMovies = useFiltration(filterParams, itemsPerPage)
 
   const handleSubmit = (params: TFilterParams) => {
     const cleanParams = Object.keys(params).reduce((saved, paramKey) => {
@@ -71,22 +66,11 @@ const MoviesPage = () => {
 
     setFilterParams({
       ...cleanParams,
-      limit: itemsPerPage,
-      page: 1,
     })
   }
 
   const handleLoadMore = () => {
-    setSearchParams({
-      ...(filterParams as Record<string, string>),
-      page: ((filterParams.page || 1) + 1).toString(),
-    })
-    setFilterParams((old) => {
-      return {
-        ...old,
-        page: (old.page || 1) + 1,
-      }
-    })
+    filteredMovies.fetchNextPage()
   }
 
   return (
@@ -98,20 +82,23 @@ const MoviesPage = () => {
 
         {filteredMovies.isLoading && <Styled.Loader />}
 
-        {filteredMovies.data?.filtered.length ? (
+        {filteredMovies.data?.pages?.length ? (
           <S.CardList>
-            {filteredMovies.data?.filtered.length &&
-              filteredMovies.data?.filtered.map((item) => (
-                <S.CardItem key={item.id}>
-                  <MovieCard movie={item} />
-                </S.CardItem>
-              ))}
+            {filteredMovies.data?.pages.map(
+              (resultsPage) =>
+                resultsPage.results.length &&
+                resultsPage.results.map((item) => (
+                  <S.CardItem key={item.id}>
+                    <MovieCard movie={item} />
+                  </S.CardItem>
+                ))
+            )}
           </S.CardList>
         ) : (
           t('common.noResults')
         )}
 
-        {filteredMovies.data?.hasNextPage && (
+        {filteredMovies.hasNextPage && (
           <S.CardsFooter>
             <Styled.Button onClick={handleLoadMore} as="button">
               {t('common.loadMore')}
