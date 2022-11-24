@@ -17,7 +17,14 @@ const FiltrationForm = ({
 }) => {
   const { t } = useTranslation()
   const { genres, titleTypes, isLoading } = useFilterData()
-  const { register, handleSubmit } = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues,
+    reValidateMode: 'onChange',
+  })
 
   return isLoading ? (
     <Styled.Loader />
@@ -29,9 +36,13 @@ const FiltrationForm = ({
         </S.EntryLabel>
         <S.EntryInput
           id="year"
-          defaultValue={defaultValues.year}
-          {...register('year')}
+          {...register('year', {
+            pattern: /^(19|20)\d{2}$/,
+          })}
         />
+        {errors.year && (
+          <S.EntryError htmlFor="year">Invalid year</S.EntryError>
+        )}
       </S.Entry>
 
       <S.Entry>
@@ -40,9 +51,14 @@ const FiltrationForm = ({
         </S.EntryLabel>
         <S.EntryInput
           id="start-year"
-          defaultValue={defaultValues.startYear}
-          {...register('startYear')}
+          {...register('startYear', {
+            pattern: /^(19|20)\d{2}$/,
+          })}
         />
+
+        {errors.startYear && (
+          <S.EntryError htmlFor="start-year">Invalid year</S.EntryError>
+        )}
       </S.Entry>
 
       <S.Entry>
@@ -51,20 +67,21 @@ const FiltrationForm = ({
         </S.EntryLabel>
         <S.EntryInput
           id="end-year"
-          defaultValue={defaultValues.endYear}
-          {...register('endYear')}
+          {...register('endYear', {
+            pattern: /^(19|20)\d{2}$/,
+          })}
         />
+
+        {errors.endYear && (
+          <S.EntryError htmlFor="end-year">Invalid year</S.EntryError>
+        )}
       </S.Entry>
 
       <S.Entry>
         <S.EntryLabel htmlFor="list">
           {t('allMovies.filtration.list')}
         </S.EntryLabel>
-        <S.EntrySelect
-          id="list"
-          defaultValue={defaultValues.list}
-          {...register('list')}
-        >
+        <S.EntrySelect id="list" {...register('list')}>
           {Object.keys(ListVariants).map((listKey, key) => (
             <option
               key={key}
@@ -80,11 +97,7 @@ const FiltrationForm = ({
         <S.EntryLabel htmlFor="genre">
           {t('allMovies.filtration.genre')}
         </S.EntryLabel>
-        <S.EntrySelect
-          id="genre"
-          defaultValue={defaultValues.genre}
-          {...register('genre')}
-        >
+        <S.EntrySelect id="genre" {...register('genre')}>
           {genres?.length &&
             genres.map((genre) => (
               <option key={genre} value={genre}>
@@ -98,11 +111,7 @@ const FiltrationForm = ({
         <S.EntryLabel htmlFor="title-type">
           {t('allMovies.filtration.titleType')}
         </S.EntryLabel>
-        <S.EntrySelect
-          id="title-type"
-          defaultValue={defaultValues.titleType}
-          {...register('titleType')}
-        >
+        <S.EntrySelect id="title-type" {...register('titleType')}>
           {titleTypes?.length &&
             titleTypes.map((type) => (
               <option key={type} value={type}>

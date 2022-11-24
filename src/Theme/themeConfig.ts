@@ -14,6 +14,7 @@ const themeConfig: {
       accent: '#908F9F',
       brand: '#4A60FD',
       brandBright: '#2942F7',
+      error: '#f53c8c',
     },
     fonts: {
       base: "'Trap', Arial, Helvetica, sans-serif",
@@ -108,6 +109,7 @@ const themeConfig: {
       mainBg: '#4f1191',
       text: '#b0f8d7',
       accent: '#f4cdff',
+      error: '#ff5871',
     },
   },
 }
