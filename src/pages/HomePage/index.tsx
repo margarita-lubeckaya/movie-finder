@@ -5,6 +5,7 @@ import { useUpcoming } from '@src/hooks/useUpcoming'
 import { usePopular } from '@src/hooks/usePopular'
 import MovieCard from '@src/components/MovieCard'
 import * as Styled from '@src/components/styled'
+import { ListVariants } from '@src/types/movie'
 
 import * as S from './styled'
 
@@ -31,7 +32,9 @@ const HomePage = () => {
               ))}
           </S.CardList>
           <S.CardsFooter>
-            <Styled.Button to={'/movies'}>{t('common.seeAll')}</Styled.Button>
+            <Styled.Button to={`/movies?list=${ListVariants.PopMovies}`}>
+              {t('common.seeAll')}
+            </Styled.Button>
           </S.CardsFooter>
         </Styled.Container>
       </Styled.Section>

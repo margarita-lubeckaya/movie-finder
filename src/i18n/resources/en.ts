@@ -3,6 +3,7 @@ export default {
     common: {
       seeAll: 'See All',
       loadMore: 'Load more',
+      noResults: 'No Results',
     },
     header: {
       nav: {

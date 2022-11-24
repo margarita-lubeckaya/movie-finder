@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { API_URL } from './config'
-import { IMovie } from '@src/types/movie'
+import { IMovie, ListVariants } from '@src/types/movie'
 
 const InfoService = {
   async getUpcoming(): Promise<{ results: IMovie[] }> {
@@ -18,7 +18,7 @@ const InfoService = {
     const { data } = await axios.get(`${API_URL}/titles/`, {
       params: {
         titleType: 'movie',
-        list: 'most_pop_movies',
+        list: ListVariants.PopMovies,
         limit: '4',
       },
     })

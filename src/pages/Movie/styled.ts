@@ -14,7 +14,7 @@ export const Media = styled.figure`
   aspect-ratio: 5 / 6;
   grid-area: image;
   max-width: ${mixins.pxToRem(320)};
-  align-self: center;
+  align-self: start;
   justify-self: center;
 `
 

@@ -3,7 +3,7 @@ import * as mixins from '@src/Theme/mixins'
 import { NavLink } from 'react-router-dom'
 
 export const Header = styled.header`
-  position: fixed;
+  position: relative;
   left: 0;
   top: 0;
   width: 100%;

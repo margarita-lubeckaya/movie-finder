@@ -2,50 +2,58 @@ import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
 import { useFilterData } from '@src/hooks/useFilterData'
-import ButtonStyled from '@src/components/styled/Button'
+import * as Styled from '@src/components/styled'
 
 import { ListVariants, TFilterParams } from '@src/types/movie'
 
 import * as S from './styled'
 
-//laLONDE1Alatuno!
-
 const FiltrationForm = ({
   onSubmit,
+  defaultValues,
 }: {
   onSubmit: (formData: TFilterParams) => void
+  defaultValues: TFilterParams
 }) => {
   const { t } = useTranslation()
-  const { genres, titleTypes } = useFilterData()
+  const { genres, titleTypes, isLoading } = useFilterData()
   const { register, handleSubmit } = useForm()
 
-  // const onSubmit = (formData: TFilterParams) => {
-  //   console.log('formData', formData)
-  // }
-
-  // console.log(formState)
-
-  return (
+  return isLoading ? (
+    <Styled.Loader />
+  ) : (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
       <S.Entry>
         <S.EntryLabel htmlFor="year">
           {t('allMovies.filtration.year')}
         </S.EntryLabel>
-        <S.EntryInput id="year" {...register('year')} />
+        <S.EntryInput
+          id="year"
+          defaultValue={defaultValues.year}
+          {...register('year')}
+        />
       </S.Entry>
 
       <S.Entry>
         <S.EntryLabel htmlFor="start-year">
           {t('allMovies.filtration.startYear')}
         </S.EntryLabel>
-        <S.EntryInput id="start-year" {...register('startYear')} />
+        <S.EntryInput
+          id="start-year"
+          defaultValue={defaultValues.startYear}
+          {...register('startYear')}
+        />
       </S.Entry>
 
       <S.Entry>
         <S.EntryLabel htmlFor="end-year">
           {t('allMovies.filtration.endYear')}
         </S.EntryLabel>
-        <S.EntryInput id="end-year" {...register('endYear')} />
+        <S.EntryInput
+          id="end-year"
+          defaultValue={defaultValues.endYear}
+          {...register('endYear')}
+        />
       </S.Entry>
 
       <S.Entry>
@@ -54,8 +62,8 @@ const FiltrationForm = ({
         </S.EntryLabel>
         <S.EntrySelect
           id="list"
+          defaultValue={defaultValues.list}
           {...register('list')}
-          defaultValue={ListVariants.FullCollection}
         >
           {Object.keys(ListVariants).map((listKey, key) => (
             <option
@@ -72,7 +80,11 @@ const FiltrationForm = ({
         <S.EntryLabel htmlFor="genre">
           {t('allMovies.filtration.genre')}
         </S.EntryLabel>
-        <S.EntrySelect id="genre" {...register('genre')}>
+        <S.EntrySelect
+          id="genre"
+          defaultValue={defaultValues.genre}
+          {...register('genre')}
+        >
           {genres?.length &&
             genres.map((genre) => (
               <option key={genre} value={genre}>
@@ -86,7 +98,11 @@ const FiltrationForm = ({
         <S.EntryLabel htmlFor="title-type">
           {t('allMovies.filtration.titleType')}
         </S.EntryLabel>
-        <S.EntrySelect id="title-type" {...register('titleType')}>
+        <S.EntrySelect
+          id="title-type"
+          defaultValue={defaultValues.titleType}
+          {...register('titleType')}
+        >
           {titleTypes?.length &&
             titleTypes.map((type) => (
               <option key={type} value={type}>
@@ -96,9 +112,9 @@ const FiltrationForm = ({
         </S.EntrySelect>
       </S.Entry>
 
-      <ButtonStyled type="submit" as="button">
+      <Styled.Button type="submit" as="button">
         {t('allMovies.filtration.submit')}
-      </ButtonStyled>
+      </Styled.Button>
     </S.Form>
   )
 }

@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 4rem;
+  padding: 4rem 0;
+  align-items: flex-end;
 `
 
 export const Entry = styled.div`
@@ -13,10 +14,15 @@ export const Entry = styled.div`
   align-items: flex-start;
 `
 export const EntryLabel = styled.label`
-  display: flex;
-  flex-wrap: wrap;
   padding-bottom: 0.5em;
 `
 
-export const EntryInput = styled.input``
-export const EntrySelect = styled.select``
+const fieldCss = css`
+  padding: 0.5em 1em;
+`
+export const EntryInput = styled.input`
+  ${fieldCss}
+`
+export const EntrySelect = styled.select`
+  ${fieldCss}
+`
