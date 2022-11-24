@@ -7,6 +7,9 @@ export const Form = styled.form`
   padding: 4rem 0;
   align-items: flex-end;
 `
+export const FormFooter = styled.div`
+  flex: 1 1 100%;
+`
 
 export const Entry = styled.div`
   display: flex;

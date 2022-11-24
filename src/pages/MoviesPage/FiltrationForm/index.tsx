@@ -122,9 +122,11 @@ const FiltrationForm = ({
         </S.EntrySelect>
       </S.Entry>
 
-      <Styled.Button type="submit" as="button">
-        {t('allMovies.filtration.submit')}
-      </Styled.Button>
+      <S.FormFooter>
+        <Styled.Button type="submit" as="button">
+          {t('allMovies.filtration.submit')}
+        </Styled.Button>
+      </S.FormFooter>
     </S.Form>
   )
 }
