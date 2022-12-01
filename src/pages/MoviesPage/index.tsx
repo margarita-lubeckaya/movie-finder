@@ -84,14 +84,14 @@ const MoviesPage = () => {
 
         {filteredMovies.data?.pages?.length ? (
           <S.CardList>
-            {filteredMovies.data?.pages.map(
-              (resultsPage) =>
-                resultsPage.results.length &&
-                resultsPage.results.map((item) => (
-                  <S.CardItem key={item.id}>
-                    <MovieCard movie={item} />
-                  </S.CardItem>
-                ))
+            {filteredMovies.data?.pages.map((resultsPage) =>
+              resultsPage.results.length
+                ? resultsPage.results.map((item) => (
+                    <S.CardItem key={item.id}>
+                      <MovieCard movie={item} />
+                    </S.CardItem>
+                  ))
+                : t('common.noResults')
             )}
           </S.CardList>
         ) : (

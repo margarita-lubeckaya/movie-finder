@@ -19,9 +19,7 @@ const Header = ({
     onThemeChange(event.target.value)
   }
   const onLangSelect: ChangeEventHandler<HTMLSelectElement> = (event) => {
-    i18n.changeLanguage(event.target.value).then((p) => {
-      console.log(p)
-    })
+    i18n.changeLanguage(event.target.value)
   }
 
   return (

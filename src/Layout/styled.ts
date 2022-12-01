@@ -12,8 +12,8 @@ export const PageMain = styled.main`
   flex: 1 1 auto;
   //padding-top: var(--header-static-height);
 `
-
-export const PageFooter = styled.footer`
-  position: relative;
-  width: 100%;
-`
+//
+// export const PageFooter = styled.footer`
+//   position: relative;
+//   width: 100%;
+// `
