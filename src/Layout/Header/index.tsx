@@ -13,7 +13,7 @@ const Header = ({
   onThemeChange: (theme: string) => void
   selectedTheme: string
 }) => {
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation(['common'])
 
   const onThemeSelect: ChangeEventHandler<HTMLSelectElement> = (event) => {
     onThemeChange(event.target.value)
@@ -29,12 +29,10 @@ const Header = ({
         <S.Nav>
           <S.NavMenuList>
             <S.NavMenuItem>
-              <S.MainNavLink to="/movies">
-                {t('header.nav.movies')}
-              </S.MainNavLink>
+              <S.MainNavLink to="/movies">{t('nav.movies')}</S.MainNavLink>
             </S.NavMenuItem>
             <S.NavMenuItem>
-              <S.MainNavLink to="/about">{t('header.nav.about')}</S.MainNavLink>
+              <S.MainNavLink to="/about">{t('nav.about')}</S.MainNavLink>
             </S.NavMenuItem>
           </S.NavMenuList>
           <S.ExtraList>
@@ -55,9 +53,9 @@ const Header = ({
                 onChange={onThemeSelect}
                 value={selectedTheme || 'default'}
               >
-                <option value="default">{t('header.theme.default')}</option>
-                <option value="light">{t('header.theme.light')}</option>
-                <option value="extra">{t('header.theme.extra')}</option>
+                <option value="default">{t('theme.default')}</option>
+                <option value="light">{t('theme.light')}</option>
+                <option value="extra">{t('theme.extra')}</option>
               </select>
             </S.ExtraItem>
           </S.ExtraList>

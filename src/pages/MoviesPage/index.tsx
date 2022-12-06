@@ -14,7 +14,7 @@ import FiltrationForm from './FiltrationForm'
 const itemsPerPage = 8
 
 const MoviesPage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['common', 'allMovies'])
   const [searchParams, setSearchParams] = useSearchParams()
 
   const filterInitParams = (): TFilterParams => {
@@ -76,7 +76,7 @@ const MoviesPage = () => {
   return (
     <Styled.Section>
       <Styled.Container>
-        <Styled.Title as="h2">{t('allMovies.title')}</Styled.Title>
+        <Styled.Title as="h2">{t('title', { ns: 'allMovies' })}</Styled.Title>
 
         <FiltrationForm onSubmit={handleSubmit} defaultValues={filterParams} />
 
@@ -91,17 +91,17 @@ const MoviesPage = () => {
                       <MovieCard movie={item} />
                     </S.CardItem>
                   ))
-                : t('common.noResults')
+                : t('noResults', { ns: 'common' })
             )}
           </S.CardList>
         ) : (
-          t('common.noResults')
+          t('noResults', { ns: 'common' })
         )}
 
         {filteredMovies.hasNextPage && (
           <S.CardsFooter>
             <Styled.Button onClick={handleLoadMore} as="button">
-              {t('common.loadMore')}
+              {t('loadMore', { ns: 'common' })}
             </Styled.Button>
           </S.CardsFooter>
         )}

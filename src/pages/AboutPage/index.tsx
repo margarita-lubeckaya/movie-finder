@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next'
 import * as Styled from '@src/components/styled'
 
 const HomePage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['about'])
   return (
     <Styled.Section>
       <Styled.Container>
-        <Styled.Title as="h2">{t('about.title')}</Styled.Title>
+        <Styled.Title as="h2">{t('title')}</Styled.Title>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
           deserunt ea, error fuga iusto libero, minus modi, nesciunt obcaecati

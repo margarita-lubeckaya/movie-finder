@@ -16,7 +16,7 @@ const FiltrationForm = ({
   onSubmit: (formData: TFilterParams) => void
   defaultValues: TFilterParams
 }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation(['allMovies'])
   const { genres, titleTypes, isLoading } = useFilterData()
   const {
     register,
@@ -32,9 +32,7 @@ const FiltrationForm = ({
   ) : (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
       <S.Entry>
-        <S.EntryLabel htmlFor="year">
-          {t('allMovies.filtration.year')}
-        </S.EntryLabel>
+        <S.EntryLabel htmlFor="year">{t('filtration.year')}</S.EntryLabel>
         <S.EntryInput
           id="year"
           {...register('year', {
@@ -42,13 +40,15 @@ const FiltrationForm = ({
           })}
         />
         {errors.year && (
-          <S.EntryError htmlFor="year">Invalid year</S.EntryError>
+          <S.EntryError htmlFor="year">
+            {t('filtration.invalidYearError')}
+          </S.EntryError>
         )}
       </S.Entry>
 
       <S.Entry>
         <S.EntryLabel htmlFor="start-year">
-          {t('allMovies.filtration.startYear')}
+          {t('filtration.startYear')}
         </S.EntryLabel>
         <S.EntryInput
           id="start-year"
@@ -58,13 +58,15 @@ const FiltrationForm = ({
         />
 
         {errors.startYear && (
-          <S.EntryError htmlFor="start-year">Invalid year</S.EntryError>
+          <S.EntryError htmlFor="start-year">
+            {t('filtration.invalidYearError')}
+          </S.EntryError>
         )}
       </S.Entry>
 
       <S.Entry>
         <S.EntryLabel htmlFor="end-year">
-          {t('allMovies.filtration.endYear')}
+          {t('filtration.endYear')}
         </S.EntryLabel>
         <S.EntryInput
           id="end-year"
@@ -74,30 +76,28 @@ const FiltrationForm = ({
         />
 
         {errors.endYear && (
-          <S.EntryError htmlFor="end-year">Invalid year</S.EntryError>
+          <S.EntryError htmlFor="end-year">
+            {t('filtration.invalidYearError')}
+          </S.EntryError>
         )}
       </S.Entry>
 
       <S.Entry>
-        <S.EntryLabel htmlFor="list">
-          {t('allMovies.filtration.list')}
-        </S.EntryLabel>
+        <S.EntryLabel htmlFor="list">{t('filtration.list')}</S.EntryLabel>
         <S.EntrySelect id="list" {...register('list')}>
           {Object.keys(ListVariants).map((listKey, key) => (
             <option
               key={key}
               value={ListVariants[listKey as keyof typeof ListVariants]}
             >
-              {t(`allMovies.filtration.listVariants.${listKey}`)}
+              {t(`filtration.listVariants.${listKey}`)}
             </option>
           ))}
         </S.EntrySelect>
       </S.Entry>
 
       <S.Entry>
-        <S.EntryLabel htmlFor="genre">
-          {t('allMovies.filtration.genre')}
-        </S.EntryLabel>
+        <S.EntryLabel htmlFor="genre">{t('filtration.genre')}</S.EntryLabel>
         <S.EntrySelect id="genre" {...register('genre')}>
           {genres?.length &&
             genres.map((genre) => (
@@ -110,7 +110,7 @@ const FiltrationForm = ({
 
       <S.Entry>
         <S.EntryLabel htmlFor="title-type">
-          {t('allMovies.filtration.titleType')}
+          {t('filtration.titleType')}
         </S.EntryLabel>
         <S.EntrySelect id="title-type" {...register('titleType')}>
           {titleTypes?.length &&
@@ -124,7 +124,7 @@ const FiltrationForm = ({
 
       <S.FormFooter>
         <Styled.Button type="submit" as="button">
-          {t('allMovies.filtration.submit')}
+          {t('filtration.submit')}
         </Styled.Button>
       </S.FormFooter>
     </S.Form>

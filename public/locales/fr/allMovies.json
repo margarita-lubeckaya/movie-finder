@@ -1,0 +1,24 @@
+{
+  "title": "Parcourir les films",
+  "filtration": {
+    "startYear": "De",
+    "endYear": "À",
+    "year": "Année de sortie",
+    "invalidYearError": "Année invalide",
+    "genre": "Genre",
+    "list": "Collection de films",
+    "listVariants": {
+      "PopMovies": "Films les plus populaires",
+      "PopSeries": "Série la plus populaire",
+      "TopBoxOffice": "Meilleur box-office",
+      "TopBoxOfficeLast": "Le meilleur box-office du week-end dernier",
+      "TopRated": "Les mieux notés",
+      "TopRatedEnglish": "L'anglais le mieux noté",
+      "TopRatedLowest": "Les mieux notés les plus bas",
+      "TopRatedSeries": "Séries les mieux notées",
+      "FullCollection": "Tous les films"
+    },
+    "titleType": "Taper",
+    "submit": "Chercher"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "seeAll": "See All",
+  "loadMore": "Load more",
+  "noResults": "No Results",
+  "nav": {
+    "movies": "Movies list",
+    "about": "About Us"
+  },
+  "theme": {
+    "default": "dark",
+    "light": "light",
+    "extra": "extra"
+  }
+}

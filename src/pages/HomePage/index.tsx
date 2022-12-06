@@ -12,15 +12,17 @@ import * as S from './styled'
 const HomePage = () => {
   const popularMovies = usePopular()
   const upcomingMovies = useUpcoming()
-  const { t } = useTranslation()
+  const { t } = useTranslation(['home', 'common'])
 
   return (
     <>
       <Styled.Section>
         <Styled.Container>
-          <Styled.Title as="h2">{t('home.popularTitle')}</Styled.Title>
+          <Styled.Title as="h2">
+            {t('popularTitle', { ns: 'home' })}
+          </Styled.Title>
           <Styled.Description as="p">
-            {t('home.popularText')}
+            {t('popularText', { ns: 'home' })}
           </Styled.Description>
           {popularMovies.isLoading && <Styled.Loader />}
           <S.CardList>
@@ -33,7 +35,7 @@ const HomePage = () => {
           </S.CardList>
           <S.CardsFooter>
             <Styled.Button to={`/movies?list=${ListVariants.PopMovies}`}>
-              {t('common.seeAll')}
+              {t('seeAll', { ns: 'common' })}
             </Styled.Button>
           </S.CardsFooter>
         </Styled.Container>
@@ -41,9 +43,11 @@ const HomePage = () => {
 
       <Styled.Section>
         <Styled.Container>
-          <Styled.Title as="h2">{t('home.upcomingTitle')}</Styled.Title>
+          <Styled.Title as="h2">
+            {t('upcomingTitle', { ns: 'home' })}
+          </Styled.Title>
           <Styled.Description as="p">
-            {t('home.upcomingText')}
+            {t('upcomingText', { ns: 'home' })}
           </Styled.Description>
 
           {upcomingMovies.isLoading && <Styled.Loader />}
@@ -56,7 +60,9 @@ const HomePage = () => {
               ))}
           </S.CardList>
           <S.CardsFooter>
-            <Styled.Button to={'/movies'}>{t('common.seeAll')}</Styled.Button>
+            <Styled.Button to={'/movies'}>
+              {t('seeAll', { ns: 'common' })}
+            </Styled.Button>
           </S.CardsFooter>
         </Styled.Container>
       </Styled.Section>
