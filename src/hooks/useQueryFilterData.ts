@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 
 import InfoService from '@services/info.service'
 
-export const useFilterData = () => {
+export const useQueryFilterData = () => {
   const { data: genres, isLoading: genresLoaded } = useQuery({
     queryKey: ['genres'],
     queryFn: InfoService.getGenres,

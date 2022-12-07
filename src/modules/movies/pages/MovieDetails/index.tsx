@@ -5,7 +5,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import formatDate from '@src/helpers/formatDate'
 
 import { useImageFallback } from '@hooks/useImageFallback'
-import { useMovie } from '@hooks/useMovie'
+import { useQueryMovie } from '@hooks/useQueryMovie'
 
 import * as Styled from '@components/styled'
 
@@ -16,7 +16,7 @@ const MovieDetails = () => {
   const { id } = useParams()
   const { state } = useLocation()
 
-  const { movieDetailed, isLoading, isError } = useMovie(id)
+  const { movieDetailed, isLoading, isError } = useQueryMovie(id)
 
   const { imageOnErrorHandler, imageSrc } = useImageFallback(
     movieDetailed?.primaryImage?.url
