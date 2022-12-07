@@ -1,6 +1,7 @@
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import * as mixins from '@src/Theme/mixins'
+import styled from 'styled-components'
+
+import * as mixins from '@theme/mixins'
 
 export const Card = styled.article`
   height: 100%;

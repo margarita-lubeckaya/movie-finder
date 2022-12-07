@@ -1,6 +1,7 @@
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import * as mixins from '@src/Theme/mixins'
+import styled from 'styled-components'
+
+import * as mixins from '@theme/mixins'
 
 const DescriptionStyled = styled.div<{
   $size?: 'text' | 'description'

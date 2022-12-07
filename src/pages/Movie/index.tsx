@@ -1,13 +1,16 @@
 import * as React from 'react'
 // import { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-import * as Styled from '@src/components/styled'
-import { useMovie } from '@src/hooks/useMovie'
-import IconStar from './IconStar'
+
 import formatDate from '@src/helpers/formatDate'
 
+import { useImageFallback } from '@hooks/useImageFallback'
+import { useMovie } from '@hooks/useMovie'
+
+import * as Styled from '@components/styled'
+
+import IconStar from './IconStar'
 import * as S from './styled'
-import { useImageFallback } from '@src/hooks/useImageFallback'
 
 const MoviePage = () => {
   const { id } = useParams()

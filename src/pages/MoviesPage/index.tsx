@@ -3,13 +3,15 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 
-import * as Styled from '@src/components/styled'
-import MovieCard from '@src/components/MovieCard'
-import { useFiltration } from '@src/hooks/useFiltration'
-import { ListVariants, TFilterParams } from '@src/types/movie'
+import { ListVariants, TFilterParams } from 'types/movie'
 
-import * as S from './styled'
+import { useFiltration } from '@hooks/useFiltration'
+
+import MovieCard from '@components/MovieCard'
+import * as Styled from '@components/styled'
+
 import FiltrationForm from './FiltrationForm'
+import * as S from './styled'
 
 const itemsPerPage = 8
 

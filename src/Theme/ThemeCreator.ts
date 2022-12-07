@@ -1,7 +1,8 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components'
+import { FlattenSimpleInterpolation, css } from 'styled-components'
+
 import * as mixins from './mixins'
 import themeConfig from './themeConfig'
-import { ThemeConfig, ResponsiveProp, Breakpoint } from './types'
+import { Breakpoint, ResponsiveProp, ThemeConfig } from './types'
 
 class ThemeCreator implements ThemeConfig {
   pxToRem

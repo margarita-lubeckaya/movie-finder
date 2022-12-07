@@ -1,7 +1,8 @@
-import * as React from 'react'
-import { ReactNode, useState, useEffect } from 'react'
+import ThemeWrapper from '@theme'
 import PropTypes from 'prop-types'
-import ThemeWrapper from '@src/Theme'
+import * as React from 'react'
+import { ReactNode, useEffect, useState } from 'react'
+
 import Header from './Header'
 import * as S from './styled'
 

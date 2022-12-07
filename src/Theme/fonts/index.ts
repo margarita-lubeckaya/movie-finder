@@ -1,13 +1,12 @@
 import { css } from 'styled-components'
 
 import * as mixins from '../mixins'
-
-import trapWoff2 from './Trap-Regular.woff2'
-import trapWoff from './Trap-Regular.woff'
-import trapExtraBoldWoff2 from './Trap-ExtraBold.woff2'
 import trapExtraBoldWoff from './Trap-ExtraBold.woff'
-import laviossaWoff2 from './laviossa-medium.woff2'
+import trapExtraBoldWoff2 from './Trap-ExtraBold.woff2'
+import trapWoff from './Trap-Regular.woff'
+import trapWoff2 from './Trap-Regular.woff2'
 import laviossaWoff from './laviossa-medium.woff'
+import laviossaWoff2 from './laviossa-medium.woff2'
 
 const includeFonts = css`
   ${mixins.creatorFontFamily({

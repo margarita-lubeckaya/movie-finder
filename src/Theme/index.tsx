@@ -1,9 +1,10 @@
-import { ThemeProvider } from 'styled-components'
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import { ReactNode, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import ThemeCreator from './ThemeCreator'
+import { ThemeProvider } from 'styled-components'
+
 import GlobalStyle from './GlobalStyle'
+import ThemeCreator from './ThemeCreator'
 
 const ThemeWrapper = ({
   children,

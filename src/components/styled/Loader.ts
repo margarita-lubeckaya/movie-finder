@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
-import * as mixins from '@src/Theme/mixins'
+
+import * as mixins from '@theme/mixins'
 
 const liquidWidth = keyframes`
   0% {

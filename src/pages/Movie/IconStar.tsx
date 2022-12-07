@@ -1,5 +1,6 @@
 import * as React from 'react'
-import IconStyled from '@src/components/styled/Icon'
+
+import IconStyled from '@components/styled/Icon'
 
 function IconStar() {
   return (

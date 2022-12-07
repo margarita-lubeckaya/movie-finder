@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query'
-import InfoService from '@src/services/info.service'
+
+import InfoService from '@services/info.service'
 
 export const useFilterData = () => {
   const { data: genres, isLoading: genresLoaded } = useQuery({

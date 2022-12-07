@@ -1,6 +1,7 @@
-import styled from 'styled-components'
-import * as mixins from '@src/Theme/mixins'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+
+import * as mixins from '@theme/mixins'
 
 export const Header = styled.header`
   position: relative;

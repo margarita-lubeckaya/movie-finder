@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import * as Styled from '@src/components/styled'
+import * as Styled from '@components/styled'
 
 const HomePage = () => {
   const { t } = useTranslation(['about'])

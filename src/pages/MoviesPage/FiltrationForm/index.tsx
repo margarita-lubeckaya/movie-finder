@@ -1,11 +1,13 @@
-import * as React from 'react'
 import PropTypes from 'prop-types'
-import { useTranslation } from 'react-i18next'
+import * as React from 'react'
 import { useForm } from 'react-hook-form'
-import { useFilterData } from '@src/hooks/useFilterData'
-import * as Styled from '@src/components/styled'
+import { useTranslation } from 'react-i18next'
 
-import { ListVariants, TFilterParams } from '@src/types/movie'
+import { ListVariants, TFilterParams } from 'types/movie'
+
+import { useFilterData } from '@hooks/useFilterData'
+
+import * as Styled from '@components/styled'
 
 import * as S from './styled'
 

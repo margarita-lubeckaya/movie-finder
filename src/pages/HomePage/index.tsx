@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { useUpcoming } from '@src/hooks/useUpcoming'
-import { usePopular } from '@src/hooks/usePopular'
-import MovieCard from '@src/components/MovieCard'
-import * as Styled from '@src/components/styled'
-import { ListVariants } from '@src/types/movie'
+import { ListVariants } from 'types/movie'
+
+import { usePopular } from '@hooks/usePopular'
+import { useUpcoming } from '@hooks/useUpcoming'
+
+import MovieCard from '@components/MovieCard'
+import * as Styled from '@components/styled'
 
 import * as S from './styled'
 

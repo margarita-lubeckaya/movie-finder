@@ -1,6 +1,8 @@
 import axios from 'axios'
+
+import { IMoveDetailed, IMovie } from 'types/movie'
+
 import { API_URL } from './config'
-import { IMoveDetailed, IMovie } from '@src/types/movie'
 
 const MovieService = {
   async getDetailed(id: string): Promise<{ results: IMoveDetailed }> {

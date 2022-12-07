@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import { ChangeEventHandler } from 'react'
-import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
+
 import { supportedLanguages } from '@src/i18n'
 
 import * as S from './styled'

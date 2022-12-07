@@ -1,4 +1,4 @@
-import { TReleaseDate } from '@src/types/movie'
+import { TReleaseDate } from 'types/movie'
 
 const formatDate = (releaseDate: TReleaseDate) => {
   return new Date(

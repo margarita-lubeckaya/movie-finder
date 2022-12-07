@@ -1,6 +1,8 @@
 import axios from 'axios'
+
+import { IMovie, ListVariants } from 'types/movie'
+
 import { API_URL } from './config'
-import { IMovie, ListVariants } from '@src/types/movie'
 
 const InfoService = {
   async getUpcoming(): Promise<{ results: IMovie[] }> {

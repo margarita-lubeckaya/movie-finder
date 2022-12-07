@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
-import fonts from './fonts'
 import cssVars from './css-vars'
+import fonts from './fonts'
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

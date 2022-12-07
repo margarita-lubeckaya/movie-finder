@@ -1,9 +1,9 @@
 import { Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
-import LoaderStyled from '@src/components/styled/Loader'
+import LoaderStyled from '@components/styled/Loader'
 
 import Layout from './Layout'
 

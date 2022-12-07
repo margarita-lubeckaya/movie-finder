@@ -1,5 +1,6 @@
-import moviePlaceholder from '@src/assets/movie-placeholder.png'
 import { useEffect, useState } from 'react'
+
+import moviePlaceholder from '@src/assets/movie-placeholder.png'
 
 export const useImageFallback = (imageUrl: string | null | undefined) => {
   const [imageSrc, setImageSrc] = useState(moviePlaceholder)

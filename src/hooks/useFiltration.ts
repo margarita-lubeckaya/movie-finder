@@ -1,6 +1,8 @@
 import { useInfiniteQuery } from 'react-query'
-import SearchService from '@src/services/search.service'
-import { TFilterParams } from '@src/types/movie'
+
+import { TFilterParams } from 'types/movie'
+
+import SearchService from '@services/search.service'
 
 export const useFiltration = (params: TFilterParams, limit: number) => {
   const { data, isLoading, isError, fetchNextPage, hasNextPage } =

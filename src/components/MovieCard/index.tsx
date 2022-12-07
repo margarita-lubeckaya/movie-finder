@@ -1,10 +1,14 @@
 import * as React from 'react'
-import { IMovie, movieType } from '@src/types/movie'
-import ImageStyled from '@src/components/styled/Image'
+
+import { IMovie, movieType } from 'types/movie'
+
 import formatDate from '@src/helpers/formatDate'
 
+import { useImageFallback } from '@hooks/useImageFallback'
+
+import ImageStyled from '@components/styled/Image'
+
 import * as S from './styled'
-import { useImageFallback } from '@src/hooks/useImageFallback'
 
 const MovieCard = ({ movie }: { movie: IMovie }) => {
   const { imageOnErrorHandler, imageSrc } = useImageFallback(
