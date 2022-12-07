@@ -12,7 +12,7 @@ import * as Styled from '@components/styled'
 import IconStar from './IconStar'
 import * as S from './styled'
 
-const MoviePage = () => {
+const MovieDetails = () => {
   const { id } = useParams()
   const { state } = useLocation()
 
@@ -82,4 +82,4 @@ const MoviePage = () => {
   )
 }
 
-export default MoviePage
+export default MovieDetails

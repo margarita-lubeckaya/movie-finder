@@ -1,16 +1,20 @@
 import { Suspense, lazy } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+// import { ReactQueryDevtools } from 'react-query/devtools'
+import {
+  Outlet,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from 'react-router-dom'
 
+import Layout from '@components/Layout'
 import LoaderStyled from '@components/styled/Loader'
 
-import Layout from './Layout'
-
-const HomePage = lazy(() => import('./pages/HomePage'))
-const AboutPage = lazy(() => import('./pages/AboutPage'))
-const MoviesPage = lazy(() => import('./pages/MoviesPage'))
-const Movie = lazy(() => import('./pages/Movie'))
+const Home = lazy(() => import('@modules/home/Home'))
+const About = lazy(() => import('@modules/about/About'))
+const Movies = lazy(() => import('@modules/movies/Movies'))
+const NotFound = lazy(() => import('@modules/not-found/NotFound'))
 
 const queryClient = new QueryClient()
 
@@ -21,15 +25,16 @@ function App() {
         <Layout>
           <Suspense fallback={<LoaderStyled />}>
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/movies" element={<MoviesPage />} />
-              <Route path="/movie/:id" element={<Movie />} />
+              <Route path="/" element={<Outlet />}>
+                <Route path="" element={<Home />} />
+                <Route path="about/*" element={<About />} />
+                <Route path="movies/*" element={<Movies />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
             </Routes>
           </Suspense>
         </Layout>
       </Router>
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }

@@ -15,7 +15,7 @@ import * as S from './styled'
 
 const itemsPerPage = 8
 
-const MoviesPage = () => {
+const MoviesList = () => {
   const { t } = useTranslation(['common', 'allMovies'])
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -112,4 +112,4 @@ const MoviesPage = () => {
   )
 }
 
-export default MoviesPage
+export default MoviesList

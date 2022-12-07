@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import * as Styled from '@components/styled'
 
-const HomePage = () => {
+const AboutPage = () => {
   const { t } = useTranslation(['about'])
   return (
     <Styled.Section>
@@ -32,4 +32,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default AboutPage

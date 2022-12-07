@@ -26,7 +26,7 @@ const MovieCard = ({ movie }: { movie: IMovie }) => {
           alt={movie.primaryImage?.caption?.plainText || movie.titleText.text}
         />
       </S.Poster>
-      <S.CardLink to={`/movie/${movie.id}`} state={{ movie }}>
+      <S.CardLink to={`/movies/${movie.id}`} state={{ movie }}>
         <S.Date>{formatDate(movie.releaseDate)}</S.Date>
         <S.Title>{movie.titleText.text}</S.Title>
       </S.CardLink>

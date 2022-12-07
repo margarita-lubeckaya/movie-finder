@@ -26,7 +26,6 @@ const BaseLayout = ({ children }: { children: ReactNode }) => {
       <S.Page>
         <Header onThemeChange={handleThemeChange} selectedTheme={theme} />
         <S.PageMain>{children}</S.PageMain>
-        {/*<S.PageFooter></S.PageFooter>*/}
       </S.Page>
     </ThemeWrapper>
   )

@@ -10,5 +10,9 @@
     "default": "dark",
     "light": "light",
     "extra": "extra"
+  },
+  "404Error" : {
+    "title" : "Oops. That page doesn't exist.",
+    "linkText" : "go to home"
   }
 }
