@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import * as React from 'react'
 import { ChangeEventHandler } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -64,14 +63,6 @@ const Header = ({
       </S.HeaderCentered>
     </S.Header>
   )
-}
-
-Header.propTypes = {
-  onThemeChange: PropTypes.func.isRequired,
-  selectedTheme: PropTypes.string,
-}
-Header.defaultProps = {
-  selectedTheme: 'default',
 }
 
 export default Header

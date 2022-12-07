@@ -1,5 +1,4 @@
 import ThemeWrapper from '@theme'
-import PropTypes from 'prop-types'
 import * as React from 'react'
 import { ReactNode, useEffect, useState } from 'react'
 
@@ -29,10 +28,6 @@ const BaseLayout = ({ children }: { children: ReactNode }) => {
       </S.Page>
     </ThemeWrapper>
   )
-}
-
-BaseLayout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default BaseLayout

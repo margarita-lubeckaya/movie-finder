@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types'
 import * as React from 'react'
 import { ReactNode, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
 import ThemeCreator from './ThemeCreator'
+import { TColorTheme } from './themeConfig'
 
 const ThemeWrapper = ({
   children,
   colorTheme,
 }: {
   children: ReactNode
-  colorTheme: string
+  colorTheme: TColorTheme
 }) => {
   const defaultTheme = new ThemeCreator({ colorTheme })
 
@@ -31,15 +31,6 @@ const ThemeWrapper = ({
       {children}
     </ThemeProvider>
   )
-}
-
-ThemeWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
-  colorTheme: PropTypes.oneOf(['light', 'default', 'extra']),
-}
-
-ThemeWrapper.defaultProps = {
-  colorTheme: 'default',
 }
 
 export default ThemeWrapper

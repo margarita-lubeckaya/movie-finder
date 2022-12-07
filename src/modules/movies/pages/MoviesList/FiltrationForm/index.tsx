@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -132,19 +131,5 @@ const FiltrationForm = ({
     </S.Form>
   )
 }
-
-FiltrationForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  defaultValues: PropTypes.shape({
-    titleType: PropTypes.string,
-    genre: PropTypes.string,
-    list: PropTypes.string,
-    year: PropTypes.number,
-    startYear: PropTypes.number,
-    endYear: PropTypes.number,
-  }),
-}
-
-FiltrationForm.defaultProps = {}
 
 export default FiltrationForm

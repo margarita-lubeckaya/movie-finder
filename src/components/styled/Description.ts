@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import * as mixins from '@theme/mixins'
@@ -15,12 +14,5 @@ const DescriptionStyled = styled.div<{
 
 }
 `
-
-DescriptionStyled.propTypes = {
-  $size: PropTypes.oneOf(['text', 'description']),
-}
-DescriptionStyled.defaultProps = {
-  $size: 'text',
-}
 
 export default DescriptionStyled

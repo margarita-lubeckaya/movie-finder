@@ -44,7 +44,4 @@ export const ButtonStyled = styled(Link)`
   }
 `
 
-ButtonStyled.propTypes = {}
-ButtonStyled.defaultProps = {}
-
 export default ButtonStyled

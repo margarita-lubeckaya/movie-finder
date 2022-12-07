@@ -115,3 +115,5 @@ const themeConfig: {
 }
 
 export default themeConfig
+
+export type TColorTheme = keyof typeof themeConfig

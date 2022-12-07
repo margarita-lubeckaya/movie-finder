@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { IMovie, movieType } from 'types/movie'
+import { IMovie } from 'types/movie'
 
 import formatDate from '@src/helpers/formatDate'
 
@@ -32,10 +32,6 @@ const MovieCard = ({ movie }: { movie: IMovie }) => {
       </S.CardLink>
     </S.Card>
   )
-}
-
-MovieCard.propTypes = {
-  movie: movieType,
 }
 
 export default MovieCard

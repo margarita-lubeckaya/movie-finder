@@ -35,7 +35,4 @@ const LoaderStyled = styled.div`
   }
 `
 
-LoaderStyled.propTypes = {}
-LoaderStyled.defaultProps = {}
-
 export default LoaderStyled

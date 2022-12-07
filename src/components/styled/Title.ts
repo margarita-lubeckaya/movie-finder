@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import * as mixins from '@theme/mixins'
@@ -13,12 +12,5 @@ const TitleStyled = styled.div<{
   max-width: ${mixins.pxToRem(500)};
   font-weight: 600;
 `
-
-TitleStyled.propTypes = {
-  $size: PropTypes.oneOf(['hero', 'title', 'title2', 'subtitle']),
-}
-TitleStyled.defaultProps = {
-  $size: 'title',
-}
 
 export default TitleStyled

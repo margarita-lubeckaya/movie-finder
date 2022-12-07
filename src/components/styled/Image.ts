@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ImageStyled = styled.img<{
@@ -10,12 +9,5 @@ const ImageStyled = styled.img<{
   display: block;
 }
 `
-
-ImageStyled.propTypes = {
-  $fit: PropTypes.oneOf(['cover', 'contain']),
-}
-ImageStyled.defaultProps = {
-  $fit: 'cover',
-}
 
 export default ImageStyled
