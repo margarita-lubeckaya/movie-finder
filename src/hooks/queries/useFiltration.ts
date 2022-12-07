@@ -4,7 +4,7 @@ import { TFilterParams } from 'types/movie'
 
 import SearchService from '@services/search.service'
 
-export const useQueryFiltration = (params: TFilterParams, limit: number) => {
+export const useFiltration = (params: TFilterParams, limit: number) => {
   const { data, isLoading, isError, fetchNextPage, hasNextPage } =
     useInfiniteQuery({
       queryKey: ['filtration', params],

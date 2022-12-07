@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 
 import { ListVariants, TFilterParams } from 'types/movie'
 
-import { useQueryFiltration } from '@hooks/useQueryFiltration'
+import { useFiltration } from '@hooks/queries/useFiltration'
 
 import MovieCard from '@components/MovieCard'
 import * as Styled from '@components/styled'
@@ -53,7 +53,7 @@ const MoviesList = () => {
   const [filterParams, setFilterParams] =
     useState<TFilterParams>(filterInitParams)
 
-  const filteredMovies = useQueryFiltration(filterParams, itemsPerPage)
+  const filteredMovies = useFiltration(filterParams, itemsPerPage)
 
   const handleSubmit = (params: TFilterParams) => {
     const cleanParams = Object.keys(params).reduce((saved, paramKey) => {

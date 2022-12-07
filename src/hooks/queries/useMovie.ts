@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 
 import MovieService from '@services/movie.service'
 
-export const useQueryMovie = (movieId: string | undefined) => {
+export const useMovie = (movieId: string | undefined) => {
   const {
     data: movieDetailed,
     isLoading,

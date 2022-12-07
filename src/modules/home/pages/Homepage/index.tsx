@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 
 import { ListVariants } from 'types/movie'
 
-import { useQueryPopular } from '@hooks/useQueryPopular'
-import { useQueryUpcoming } from '@hooks/useQueryUpcoming'
+import { usePopular } from '@hooks/queries/usePopular'
+import { useUpcoming } from '@hooks/queries/useUpcoming'
 
 import MovieCard from '@components/MovieCard'
 import * as Styled from '@components/styled'
@@ -12,8 +12,8 @@ import * as Styled from '@components/styled'
 import * as S from './styled'
 
 const HomePage = () => {
-  const popularMovies = useQueryPopular()
-  const upcomingMovies = useQueryUpcoming()
+  const popularMovies = usePopular()
+  const upcomingMovies = useUpcoming()
   const { t } = useTranslation(['home', 'common'])
 
   return (

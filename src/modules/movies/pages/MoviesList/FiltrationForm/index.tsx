@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { ListVariants, TFilterParams } from 'types/movie'
 
-import { useQueryFilterData } from '@hooks/useQueryFilterData'
+import { useFilterData } from '@hooks/queries/useFilterData'
 
 import * as Styled from '@components/styled'
 
@@ -19,7 +19,7 @@ const FiltrationForm = ({
   defaultValues: TFilterParams
 }) => {
   const { t } = useTranslation(['allMovies'])
-  const { genres, titleTypes, isLoading } = useQueryFilterData()
+  const { genres, titleTypes, isLoading } = useFilterData()
   const {
     register,
     handleSubmit,
