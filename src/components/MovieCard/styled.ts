@@ -31,6 +31,8 @@ export const Title = styled.h3`
   padding: 0.5em;
   transition: transform 0.5s ease;
   justify-self: flex-end;
+  max-width: 100%;
+  overflow: clip;
 `
 export const Date = styled.div`
   align-self: flex-end;
@@ -54,6 +56,8 @@ export const CardLink = styled(Link)`
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  width: 100%;
+  overflow: hidden;
 
   &:hover {
     backdrop-filter: blur(10px);
