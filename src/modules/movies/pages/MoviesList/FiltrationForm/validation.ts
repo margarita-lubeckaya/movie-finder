@@ -10,11 +10,7 @@ const validateYear = (value: any) =>
 
 export const schema = yup.object({
   year: yup.lazy(validateYear),
-  startYear: yup.lazy((value) =>
-    value === ''
-      ? yup.string()
-      : yup.number().positive().min(firstMovieYear).max(maxYear).integer()
-  ),
+  startYear: yup.lazy(validateYear),
   endYear: yup.lazy((value) =>
     value === ''
       ? yup.string()
