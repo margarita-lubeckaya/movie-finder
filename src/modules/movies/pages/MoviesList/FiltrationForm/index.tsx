@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
@@ -9,6 +10,7 @@ import { useFilterData } from '@hooks/queries/useFilterData'
 import * as Styled from '@components/styled'
 
 import * as S from './styled'
+import { schema } from './validation'
 
 const FiltrationForm = ({
   onSubmit,
@@ -23,9 +25,10 @@ const FiltrationForm = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<TFilterParams>({
     defaultValues,
     reValidateMode: 'onChange',
+    resolver: yupResolver(schema),
   })
 
   return isLoading ? (
@@ -34,12 +37,7 @@ const FiltrationForm = ({
     <S.Form onSubmit={handleSubmit(onSubmit)}>
       <S.Entry>
         <S.EntryLabel htmlFor="year">{t('filtration.year')}</S.EntryLabel>
-        <S.EntryInput
-          id="year"
-          {...register('year', {
-            pattern: /^(19|20)\d{2}$/,
-          })}
-        />
+        <S.EntryInput id="year" {...register('year')} />
         {errors.year && (
           <S.EntryError htmlFor="year">
             {t('filtration.invalidYearError')}
@@ -51,12 +49,7 @@ const FiltrationForm = ({
         <S.EntryLabel htmlFor="start-year">
           {t('filtration.startYear')}
         </S.EntryLabel>
-        <S.EntryInput
-          id="start-year"
-          {...register('startYear', {
-            pattern: /^(19|20)\d{2}$/,
-          })}
-        />
+        <S.EntryInput id="start-year" {...register('startYear')} />
 
         {errors.startYear && (
           <S.EntryError htmlFor="start-year">
@@ -69,12 +62,7 @@ const FiltrationForm = ({
         <S.EntryLabel htmlFor="end-year">
           {t('filtration.endYear')}
         </S.EntryLabel>
-        <S.EntryInput
-          id="end-year"
-          {...register('endYear', {
-            pattern: /^(19|20)\d{2}$/,
-          })}
-        />
+        <S.EntryInput id="end-year" {...register('endYear')} />
 
         {errors.endYear && (
           <S.EntryError htmlFor="end-year">
