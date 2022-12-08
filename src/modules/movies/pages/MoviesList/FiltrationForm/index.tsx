@@ -9,6 +9,7 @@ import { useFilterData } from '@hooks/queries/useFilterData'
 
 import * as Styled from '@components/styled'
 
+import FormEntry from './FormEntry'
 import * as S from './styled'
 import { schema } from './validation'
 
@@ -35,81 +36,82 @@ const FiltrationForm = ({
     <Styled.Loader />
   ) : (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <S.Entry>
-        <S.EntryLabel htmlFor="year">{t('filtration.year')}</S.EntryLabel>
-        <S.EntryInput id="year" {...register('year')} />
-        {errors.year && (
-          <S.EntryError htmlFor="year">
-            {t('filtration.invalidYearError')}
-          </S.EntryError>
-        )}
-      </S.Entry>
+      <FormEntry
+        type="input"
+        name="year"
+        register={register}
+        label={t('filtration.year')}
+        errorMessage={t('filtration.invalidYearError')}
+        error={errors.year}
+      />
 
-      <S.Entry>
-        <S.EntryLabel htmlFor="start-year">
-          {t('filtration.startYear')}
-        </S.EntryLabel>
-        <S.EntryInput id="start-year" {...register('startYear')} />
+      <FormEntry
+        type="input"
+        name="startYear"
+        register={register}
+        label={t('filtration.startYear')}
+        errorMessage={t('filtration.invalidYearError')}
+        error={errors.startYear}
+      />
 
-        {errors.startYear && (
-          <S.EntryError htmlFor="start-year">
-            {t('filtration.invalidYearError')}
-          </S.EntryError>
-        )}
-      </S.Entry>
+      <FormEntry
+        type="input"
+        name="endYear"
+        register={register}
+        label={t('filtration.endYear')}
+        errorMessage={t('filtration.invalidYearError')}
+        error={errors.endYear}
+      />
 
-      <S.Entry>
-        <S.EntryLabel htmlFor="end-year">
-          {t('filtration.endYear')}
-        </S.EntryLabel>
-        <S.EntryInput id="end-year" {...register('endYear')} />
+      <FormEntry
+        type="select"
+        name="list"
+        register={register}
+        label={t('filtration.list')}
+        errorMessage=""
+        error={errors.list}
+      >
+        {Object.keys(ListVariants).map((listKey, key) => (
+          <option
+            key={key}
+            value={ListVariants[listKey as keyof typeof ListVariants]}
+          >
+            {t(`filtration.listVariants.${listKey}`)}
+          </option>
+        ))}
+      </FormEntry>
 
-        {errors.endYear && (
-          <S.EntryError htmlFor="end-year">
-            {t('filtration.invalidYearError')}
-          </S.EntryError>
-        )}
-      </S.Entry>
-
-      <S.Entry>
-        <S.EntryLabel htmlFor="list">{t('filtration.list')}</S.EntryLabel>
-        <S.EntrySelect id="list" {...register('list')}>
-          {Object.keys(ListVariants).map((listKey, key) => (
-            <option
-              key={key}
-              value={ListVariants[listKey as keyof typeof ListVariants]}
-            >
-              {t(`filtration.listVariants.${listKey}`)}
+      <FormEntry
+        type="select"
+        name="genre"
+        register={register}
+        label={t('filtration.genre')}
+        errorMessage=""
+        error={errors.genre}
+      >
+        {genres?.length &&
+          genres.map((genre) => (
+            <option key={genre} value={genre}>
+              {genre}
             </option>
           ))}
-        </S.EntrySelect>
-      </S.Entry>
+      </FormEntry>
 
-      <S.Entry>
-        <S.EntryLabel htmlFor="genre">{t('filtration.genre')}</S.EntryLabel>
-        <S.EntrySelect id="genre" {...register('genre')}>
-          {genres?.length &&
-            genres.map((genre) => (
-              <option key={genre} value={genre}>
-                {genre}
-              </option>
-            ))}
-        </S.EntrySelect>
-      </S.Entry>
-
-      <S.Entry>
-        <S.EntryLabel htmlFor="title-type">
-          {t('filtration.titleType')}
-        </S.EntryLabel>
-        <S.EntrySelect id="title-type" {...register('titleType')}>
-          {titleTypes?.length &&
-            titleTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-        </S.EntrySelect>
-      </S.Entry>
+      <FormEntry
+        type="select"
+        name="titleType"
+        register={register}
+        label={t('filtration.titleType')}
+        errorMessage=""
+        error={errors.titleType}
+      >
+        {titleTypes?.length &&
+          titleTypes.map((type) => (
+            <option key={type} value={type}>
+              {type}
+            </option>
+          ))}
+      </FormEntry>
 
       <S.FormFooter>
         <Styled.Button type="submit" as="button">
