@@ -25,6 +25,7 @@
       "@modules/*": ["./src/modules/*"],
       "@theme/*": ["./src/Theme/*"],
       "@theme": ["./src/Theme"],
+      "@assets/*": ["./src/assets/*"],
     }
   },
   "include": ["src"],

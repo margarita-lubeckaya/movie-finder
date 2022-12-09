@@ -68,7 +68,6 @@ const FiltrationForm = ({
         name="list"
         register={register}
         label={t('filtration.list')}
-        errorMessage=""
         error={errors.list}
       >
         {Object.keys(ListVariants).map((listKey, key) => (
@@ -86,7 +85,6 @@ const FiltrationForm = ({
         name="genre"
         register={register}
         label={t('filtration.genre')}
-        errorMessage=""
         error={errors.genre}
       >
         {genres?.length &&
@@ -102,7 +100,6 @@ const FiltrationForm = ({
         name="titleType"
         register={register}
         label={t('filtration.titleType')}
-        errorMessage=""
         error={errors.titleType}
       >
         {titleTypes?.length &&

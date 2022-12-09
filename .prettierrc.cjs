@@ -13,6 +13,7 @@ module.exports = {
     "^@src/(.*)$",
     "^@hooks/(.*)$",
     "^@components/(.*)$",
+    "^@assets/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

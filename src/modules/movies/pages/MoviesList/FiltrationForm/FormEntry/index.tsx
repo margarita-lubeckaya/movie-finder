@@ -11,7 +11,7 @@ type TEntryProps = {
   register: UseFormRegister<TFilterParams>
   error: FieldError | undefined
   name: keyof TFilterParams
-  errorMessage: string
+  errorMessage?: string | null
   children?: ReactNode
 } & (
   | { type: 'input' }
@@ -45,7 +45,9 @@ const FormEntry = ({
       )}
 
       {error && (
-        <S.EntryError htmlFor={`el-${name}`}>{errorMessage}</S.EntryError>
+        <S.EntryError htmlFor={`el-${name}`}>
+          {errorMessage || 'error'}
+        </S.EntryError>
       )}
     </S.Entry>
   )
