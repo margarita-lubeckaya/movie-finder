@@ -1,0 +1,18 @@
+{
+  "seeAll": "See All",
+  "loadMore": "Load more",
+  "noResults": "No Results",
+  "nav": {
+    "movies": "Movies list",
+    "about": "About Us"
+  },
+  "theme": {
+    "default": "dark",
+    "light": "light",
+    "extra": "extra"
+  },
+  "404Error" : {
+    "title" : "Oops. That page doesn't exist.",
+    "linkText" : "go to home"
+  }
+}

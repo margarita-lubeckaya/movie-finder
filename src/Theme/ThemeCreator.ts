@@ -1,7 +1,8 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components'
+import { FlattenSimpleInterpolation, css } from 'styled-components'
+
 import * as mixins from './mixins'
-import themeConfig from './themeConfig'
-import { ThemeConfig, ResponsiveProp, Breakpoint } from './types'
+import themeConfig, { TColorTheme } from './themeConfig'
+import { Breakpoint, ResponsiveProp, ThemeConfig } from './types'
 
 class ThemeCreator implements ThemeConfig {
   pxToRem
@@ -18,7 +19,7 @@ class ThemeCreator implements ThemeConfig {
 
   fontSizes
 
-  constructor(config: { colorTheme: keyof typeof themeConfig }) {
+  constructor(config: { colorTheme: TColorTheme }) {
     this.breakpoints = themeConfig.default.breakpoints
     this.fonts = { ...themeConfig.default.fonts }
     this.colors = { ...themeConfig.default.colors }

@@ -1,6 +1,7 @@
 import 'styled-components'
-import { Breakpoint, ResponsiveProp, ThemeConfig } from '@src/Theme/types'
 import { FlattenSimpleInterpolation } from 'styled-components'
+
+import { Breakpoint, ResponsiveProp, ThemeConfig } from './types'
 
 declare module 'styled-components' {
   export interface DefaultTheme extends ThemeConfig {

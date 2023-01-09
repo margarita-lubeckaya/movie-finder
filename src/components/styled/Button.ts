@@ -1,6 +1,7 @@
-import styled from 'styled-components'
-import * as mixins from '@src/Theme/mixins'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+import * as mixins from '@theme/mixins'
 
 export const ButtonStyled = styled(Link)`
   display: inline-flex;
@@ -42,8 +43,5 @@ export const ButtonStyled = styled(Link)`
     }
   }
 `
-
-ButtonStyled.propTypes = {}
-ButtonStyled.defaultProps = {}
 
 export default ButtonStyled

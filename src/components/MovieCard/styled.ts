@@ -1,6 +1,7 @@
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import * as mixins from '@src/Theme/mixins'
+import styled from 'styled-components'
+
+import * as mixins from '@theme/mixins'
 
 export const Card = styled.article`
   height: 100%;
@@ -30,6 +31,8 @@ export const Title = styled.h3`
   padding: 0.5em;
   transition: transform 0.5s ease;
   justify-self: flex-end;
+  max-width: 100%;
+  overflow: clip;
 `
 export const Date = styled.div`
   align-self: flex-end;
@@ -53,6 +56,8 @@ export const CardLink = styled(Link)`
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  width: 100%;
+  overflow: hidden;
 
   &:hover {
     backdrop-filter: blur(10px);

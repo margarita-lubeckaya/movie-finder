@@ -1,0 +1,24 @@
+{
+  "title": "Browse movies",
+  "filtration": {
+    "startYear": "From",
+    "endYear": "To",
+    "year": "Release year",
+    "invalidYearError": "Invalid year",
+    "genre": "Genre",
+    "list": "Movie Collection",
+    "listVariants": {
+      "PopMovies": "Most popular movies",
+      "PopSeries": "Most popular series",
+      "TopBoxOffice": "Top box office",
+      "TopBoxOfficeLast": "Top box office on last weekend",
+      "TopRated": "Top rated",
+      "TopRatedEnglish": "Top rated english",
+      "TopRatedLowest": "Top rated lowest",
+      "TopRatedSeries": "Top rated series",
+      "FullCollection": "All Movies"
+    },
+    "titleType": "Type",
+    "submit": "Search"
+  }
+}

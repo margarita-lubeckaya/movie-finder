@@ -1,6 +1,8 @@
 import axios from 'axios'
+
+import { IMovie, TFilterParams } from 'types/movie'
+
 import { API_URL } from './config'
-import { IMovie, TFilterParams } from '@src/types/movie'
 
 const SearchService = {
   async getFiltered(
