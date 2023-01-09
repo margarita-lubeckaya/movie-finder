@@ -78,7 +78,7 @@ const MoviesList = () => {
   return (
     <Styled.Section>
       <Styled.Container>
-        <Styled.Title as="h2">{t('title', { ns: 'allMovies' })}</Styled.Title>
+        <Styled.Title as="h2">{t('allMovies:title')}</Styled.Title>
 
         <FiltrationForm onSubmit={handleSubmit} defaultValues={filterParams} />
 
@@ -93,17 +93,17 @@ const MoviesList = () => {
                       <MovieCard movie={item} />
                     </S.CardItem>
                   ))
-                : t('noResults', { ns: 'common' })
+                : t('common:noResults')
             )}
           </S.CardList>
         ) : (
-          t('noResults', { ns: 'common' })
+          t('common:noResults')
         )}
 
         {filteredMovies.hasNextPage && (
           <S.CardsFooter>
             <Styled.Button onClick={handleLoadMore} as="button">
-              {t('loadMore', { ns: 'common' })}
+              {t('common:loadMore')}
             </Styled.Button>
           </S.CardsFooter>
         )}

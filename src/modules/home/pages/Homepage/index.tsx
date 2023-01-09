@@ -20,11 +20,9 @@ const HomePage = () => {
     <>
       <Styled.Section>
         <Styled.Container>
-          <Styled.Title as="h2">
-            {t('popularTitle', { ns: 'home' })}
-          </Styled.Title>
+          <Styled.Title as="h2">{t('home:popularTitle')}</Styled.Title>
           <Styled.Description as="p">
-            {t('popularText', { ns: 'home' })}
+            {t('home:popularText')}
           </Styled.Description>
           {popularMovies.isLoading && <Styled.Loader />}
           <S.CardList>
@@ -37,7 +35,7 @@ const HomePage = () => {
           </S.CardList>
           <S.CardsFooter>
             <Styled.Button to={`/movies?list=${ListVariants.PopMovies}`}>
-              {t('seeAll', { ns: 'common' })}
+              {t('common:seeAll')}
             </Styled.Button>
           </S.CardsFooter>
         </Styled.Container>
@@ -45,11 +43,9 @@ const HomePage = () => {
 
       <Styled.Section>
         <Styled.Container>
-          <Styled.Title as="h2">
-            {t('upcomingTitle', { ns: 'home' })}
-          </Styled.Title>
+          <Styled.Title as="h2">{t('home:upcomingTitle')}</Styled.Title>
           <Styled.Description as="p">
-            {t('upcomingText', { ns: 'home' })}
+            {t('home:upcomingText')}
           </Styled.Description>
 
           {upcomingMovies.isLoading && <Styled.Loader />}
@@ -62,9 +58,7 @@ const HomePage = () => {
               ))}
           </S.CardList>
           <S.CardsFooter>
-            <Styled.Button to={'/movies'}>
-              {t('seeAll', { ns: 'common' })}
-            </Styled.Button>
+            <Styled.Button to={'/movies'}>{t('common:seeAll')}</Styled.Button>
           </S.CardsFooter>
         </Styled.Container>
       </Styled.Section>
